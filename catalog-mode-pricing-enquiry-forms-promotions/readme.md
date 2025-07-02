@@ -3,8 +3,8 @@ Contributors: zendcrew, sundayfanz
 Donate link: 
 Tags: catalog, catalog mode, catalogue mode, enquiry form, remove add to cart, remove price, product pricing, promotions, countdown, countdown timer, badges, product badges, b2b, ecommerce, woocommerce
 Requires at least: 5.8
-Tested up to: 6.7
-Stable tag: 1.1.7
+Tested up to: 6.8
+Stable tag: 1.1.8
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -21,7 +21,7 @@ The plugin also provides options for **setting prices** (including **flash sales
 
 This plugin features three separate modules: **Catalog Modes**, **Product Pricing**, and **Product Settings** (which includes **promotional settings**).
 
-[TRY LIVE DEMO](https://demo.zendcrew.cc/catalog-mode/) | [DOCUMENTATION](https://zencrew.freshdesk.com/support/solutions/51000070103) | [HELP CENTER](https://zencrew.freshdesk.com/support/tickets)
+[TRY LIVE DEMO](https://demo.zendcrew.cc/catalog-mode/) | [DOCUMENTATION](https://support.zendcrew.cc/portal/en/kb/woocommerce-catalog-mode-enquiry-forms) | [HELP CENTER](https://support.zendcrew.cc/portal/en/newticket)
 
 ### WooCommerce Catalog Modes
 With the **catalog modes** module, you can easily create and manage multiple **catalog mode** options, such as **hiding product prices**, **disabling the add-to-cart buttons**, **adding enquiry forms**, and **disabling shop**, **cart**, and **checkout functions**. These options can be based on **conditions and product rules**.
@@ -57,6 +57,11 @@ The plugin allows you to easily set up all module functions based on product rul
 6. WooCommerce Catalog Mode - Product Settings 2
 
 == Changelog ==
+
+= 1.1.8 - 01/07/2025 =
+[Update] - Updated documentation links
+[Check] - WordPress 6.8 compatibility check
+[Check] - WooCommerce 9.9 compatibility check
 
 = 1.1.7 - 18/03/2025 =
 [Tweaks] - Minor tweaks

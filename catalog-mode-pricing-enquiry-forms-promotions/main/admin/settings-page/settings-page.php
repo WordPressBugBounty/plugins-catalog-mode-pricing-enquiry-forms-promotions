@@ -277,7 +277,7 @@ if ( !class_exists( 'WModes_Admin_Page' ) ) {
                 return $links;
             }
 
-            $doc_link = '<a href="' . esc_url( 'https://zencrew.freshdesk.com/support/solutions/51000121630' ) . '">' . esc_html__( 'Documentation', 'wmodes-tdm' ) . '</a>';
+            $doc_link = '<a href="' . esc_url( 'https://support.zendcrew.cc/portal/en/kb/woocommerce-catalog-mode-enquiry-forms' ) . '" target="_blank">' . esc_html__( 'Documentation', 'wmodes-tdm' ) . '</a>';
 
             array_unshift( $links, $doc_link );
 
@@ -362,7 +362,7 @@ if ( !class_exists( 'WModes_Admin_Page' ) ) {
                     'id' => 'wmds_documentation',
                     'title' => esc_html__( 'Documentation', 'wmodes-tdm' ),
                     'icon' => 'fa fa-file-text',
-                    'href' => esc_url( 'https://zencrew.freshdesk.com/support/solutions/51000121630' ),
+                    'href' => esc_url( 'https://support.zendcrew.cc/portal/en/kb/woocommerce-catalog-mode-enquiry-forms' ),
                     'target' => '_blank',
                     'show_in' => 'both'
                 ),
@@ -374,7 +374,7 @@ if ( !class_exists( 'WModes_Admin_Page' ) ) {
                     'id' => 'wmds_help',
                     'title' => esc_html__( 'Help', 'wmodes-tdm' ),
                     'icon' => 'fa fa-question-circle',
-                    'href' => esc_url( 'https://zencrew.freshdesk.com/support/tickets' ),
+                    'href' => esc_url( 'https://support.zendcrew.cc/portal/en/newticket' ),
                     'target' => '_blank',
                     'show_in' => 'both'
                 );
