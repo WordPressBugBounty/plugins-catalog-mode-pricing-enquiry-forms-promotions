@@ -12,7 +12,7 @@ msgstr ""
 "POT-Creation-Date: 2025-07-01T10:53:35+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
-"X-Domain: wmodes-tdm\n"
+"X-Domain: catalog-mode-pricing-enquiry-forms-promotions\n"
 
 #. Plugin Name of the plugin
 #: D:\Freelancer\Envato\CodeCayon\catalog-mode-pricing-enquiry-form-promotions\repo\trunk\catalog-mode-pricing-enquiry-forms-promotions.php

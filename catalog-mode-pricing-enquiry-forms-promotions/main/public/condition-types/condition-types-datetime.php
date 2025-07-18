@@ -42,7 +42,7 @@ if ( !class_exists( 'WModes_Condition_Type_DateTime' ) && !defined( 'WMODES_PREM
                     return false;
                 }
 
-                $current_date_time = date( "Y-m-d H:i:s", current_time( 'timestamp' ) );
+                $current_date_time = gmdate( "Y-m-d H:i:s", current_time( 'timestamp' ) );
 
                 $from_is_valid = WModes_Validation_Util::validate_date( '>=', $current_date_time, $rule_from_date_time, 'Y-m-d H:i:s', 'Y-m-d H:i:s' );
                 $to_is_valid = WModes_Validation_Util::validate_date( '<=', $current_date_time, $rule_to_date_time, 'Y-m-d H:i:s', 'Y-m-d H:i:s' );
@@ -56,7 +56,7 @@ if ( !class_exists( 'WModes_Condition_Type_DateTime' ) && !defined( 'WMODES_PREM
                     return false;
                 }
 
-                $current_date_time = date( "Y-m-d H:i:s", current_time( 'timestamp' ) );
+                $current_date_time = gmdate( "Y-m-d H:i:s", current_time( 'timestamp' ) );
 
                 $valid_type = '>=';
                 if ( $rule_date_type == 'to' ) {

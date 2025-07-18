@@ -31,7 +31,7 @@ if ( !class_exists( 'WModes_Util' ) && !defined( 'WMODES_PREMIUM_ADDON' ) ) {
                         . " AND post_name IN('" . implode( "','", array_map( 'esc_sql', $slugs ) ) . "')";
 
 
-                $results = $wpdb->get_results( $sql, ARRAY_A );
+                $results = $wpdb->get_results( $sql, ARRAY_A ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared,WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching
 
                 foreach ( $results as $row ) {
                     $product_ids[] = $row[ 'id' ];
@@ -66,7 +66,7 @@ if ( !class_exists( 'WModes_Util' ) && !defined( 'WMODES_PREMIUM_ADDON' ) ) {
                         . " WHERE (term_taxonomy.taxonomy=%s)"
                         . " AND slug IN('" . implode( "','", array_map( 'esc_sql', $slugs ) ) . "')";
 
-                $results = $wpdb->get_results( $wpdb->prepare( $sql, $taxonomy ), ARRAY_A );
+                $results = $wpdb->get_results( $wpdb->prepare( $sql, $taxonomy ), ARRAY_A ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared,WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching
 
                 foreach ( $results as $row ) {
                     $term_ids[] = $row[ 'term_id' ];

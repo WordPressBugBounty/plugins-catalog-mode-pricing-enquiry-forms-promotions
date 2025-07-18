@@ -1,5 +1,9 @@
 <?php
 
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 if ( !class_exists( 'Reon' ) ) {
     return;
 }
@@ -18,7 +22,7 @@ if ( !class_exists( 'WModes_Admin_Catalog_Mode_Types_Shop' ) && !defined( 'WMODE
         public static function get_types( $in_options, $args = array() ) {
 
             $in_options[ 'shop' ] = array(
-                'title' => esc_html__( 'Shop Page Settings', 'wmodes-tdm' ),
+                'title' => esc_html__( 'Shop Page Settings', 'catalog-mode-pricing-enquiry-forms-promotions' ),
             );
 
             return $in_options;
@@ -33,8 +37,8 @@ if ( !class_exists( 'WModes_Admin_Catalog_Mode_Types_Shop' ) && !defined( 'WMODE
                 'full_width' => true,
                 'center_head' => true,
                 'merge_fields' => false,
-                'title' => esc_html__( '"Add to Cart" Settings', 'wmodes-tdm' ),
-                'desc' => esc_html__( 'Use these settings to control "Add to Cart" on shop page', 'wmodes-tdm' ),
+                'title' => esc_html__( '"Add to Cart" Settings', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'desc' => esc_html__( 'Use these settings to control "Add to Cart" on shop page', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'field_css_class' => array( 'rn-first', 'wmodes_locations_title' ),
                 'fields' => self::get_add_to_cart_fields( $args ),
             );
@@ -76,8 +80,8 @@ if ( !class_exists( 'WModes_Admin_Catalog_Mode_Types_Shop' ) && !defined( 'WMODE
                 'full_width' => true,
                 'center_head' => true,
                 'merge_fields' => false,
-                'title' => esc_html__( 'Price Settings', 'wmodes-tdm' ),
-                'desc' => esc_html__( 'Use these settings to control price on shop page', 'wmodes-tdm' ),
+                'title' => esc_html__( 'Price Settings', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'desc' => esc_html__( 'Use these settings to control price on shop page', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'field_css_class' => array( 'wmodes_locations_title' ),
                 'fields' => self::get_price_fields( $args ),
             );
@@ -110,12 +114,12 @@ if ( !class_exists( 'WModes_Admin_Catalog_Mode_Types_Shop' ) && !defined( 'WMODE
                 'id' => 'enable_add_to_cart',
                 'type' => 'select2',
                 'column_size' => 1,
-                'column_title' => esc_html__( '"Add to Cart" Visibility', 'wmodes-tdm' ),
-                'tooltip' => esc_html__( 'Controls "Add to Cart" visibility on shop page', 'wmodes-tdm' ),
+                'column_title' => esc_html__( '"Add to Cart" Visibility', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'tooltip' => esc_html__( 'Controls "Add to Cart" visibility on shop page', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'default' => 'show',
                 'options' => array(
-                    'show' => esc_html__( 'Show "Add to Cart"', 'wmodes-tdm' ),
-                    'hide' => esc_html__( 'Hide "Add to Cart"', 'wmodes-tdm' ),
+                    'show' => esc_html__( 'Show "Add to Cart"', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                    'hide' => esc_html__( 'Hide "Add to Cart"', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 ),
                 'width' => '100%',
                 'fold_id' => 'shop_add_to_cart'
@@ -125,13 +129,13 @@ if ( !class_exists( 'WModes_Admin_Catalog_Mode_Types_Shop' ) && !defined( 'WMODE
                 'id' => 'add_to_cart_replace',
                 'type' => 'select2',
                 'column_size' => 1,
-                'column_title' => esc_html__( 'Replace With', 'wmodes-tdm' ),
-                'tooltip' => esc_html__( 'Controls "Add to Cart" replacement on shop page', 'wmodes-tdm' ),
+                'column_title' => esc_html__( 'Replace With', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'tooltip' => esc_html__( 'Controls "Add to Cart" replacement on shop page', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'default' => 'no',
                 'disabled_list_filter' => 'wmodes-admin/get-disabled-list',
                 'options' => array(
-                    'no' => esc_html__( 'Nothing', 'wmodes-tdm' ),
-                    'replace_textblock' => esc_html__( 'Text Block', 'wmodes-tdm' ),
+                    'no' => esc_html__( 'Nothing', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                    'replace_textblock' => esc_html__( 'Text Block', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 ),
                 'width' => '100%',
                 'fold_id' => 'add_to_cart_replace',
@@ -149,12 +153,12 @@ if ( !class_exists( 'WModes_Admin_Catalog_Mode_Types_Shop' ) && !defined( 'WMODE
                 'id' => 'add_to_cart_customize',
                 'type' => 'select2',
                 'column_size' => 1,
-                'column_title' => esc_html__( 'Customize "Add to Cart"', 'wmodes-tdm' ),
-                'tooltip' => esc_html__( 'Controls "Add to Cart" text on shop page', 'wmodes-tdm' ),
+                'column_title' => esc_html__( 'Customize "Add to Cart"', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'tooltip' => esc_html__( 'Controls "Add to Cart" text on shop page', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'default' => 'no',
                 'options' => array(
-                    'no' => esc_html__( 'No', 'wmodes-tdm' ),
-                    'yes' => esc_html__( 'Yes', 'wmodes-tdm' ),
+                    'no' => esc_html__( 'No', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                    'yes' => esc_html__( 'Yes', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 ),
                 'width' => '100%',
                 'fold_id' => 'add_to_cart_customize',
@@ -172,10 +176,10 @@ if ( !class_exists( 'WModes_Admin_Catalog_Mode_Types_Shop' ) && !defined( 'WMODE
                 'id' => 'add_to_cart_text',
                 'type' => 'textarea',
                 'column_size' => 1,
-                'column_title' => esc_html__( '"Add to Cart" Text', 'wmodes-tdm' ),
-                'tooltip' => esc_html__( 'Controls "Add to Cart" text', 'wmodes-tdm' ),
-                'default' => esc_html__( 'Add to Enquiry', 'wmodes-tdm' ),
-                'placeholder' => esc_html__( 'Type here...', 'wmodes-tdm' ),
+                'column_title' => esc_html__( '"Add to Cart" Text', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'tooltip' => esc_html__( 'Controls "Add to Cart" text', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'default' => esc_html__( 'Add to Enquiry', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'placeholder' => esc_html__( 'Type here...', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'rows' => 1,
                 'width' => '100%',
                 'fold' => array(
@@ -193,8 +197,8 @@ if ( !class_exists( 'WModes_Admin_Catalog_Mode_Types_Shop' ) && !defined( 'WMODE
                 'id' => 'add_to_cart_textblock_ui_id',
                 'type' => 'select2',
                 'column_size' => 1,
-                'column_title' => esc_html__( 'Text Block - UI Design', 'wmodes-tdm' ),
-                'tooltip' => esc_html__( "Controls the text block's UI design on the shop page", 'wmodes-tdm' ),
+                'column_title' => esc_html__( 'Text Block - UI Design', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'tooltip' => esc_html__( "Controls the text block's UI design on the shop page", 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'default' => '2234343',
                 'data' => 'wmodes:textblock_designs',
                 'width' => '100%',
@@ -218,13 +222,13 @@ if ( !class_exists( 'WModes_Admin_Catalog_Mode_Types_Shop' ) && !defined( 'WMODE
                 'id' => 'add_to_cart_link_type',
                 'type' => 'select2',
                 'column_size' => 1,
-                'column_title' => esc_html__( 'Link Type', 'wmodes-tdm' ),
-                'tooltip' => esc_html__( 'Controls "Add to Cart" link type', 'wmodes-tdm' ),
+                'column_title' => esc_html__( 'Link Type', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'tooltip' => esc_html__( 'Controls "Add to Cart" link type', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'default' => 'no',
                 'disabled_list_filter' => 'wmodes-admin/get-disabled-list',
                 'options' => array(
-                    'no' => esc_html__( 'Add to Cart link', 'wmodes-tdm' ),                    
-                    'url' => esc_html__( 'Page URL', 'wmodes-tdm' ),
+                    'no' => esc_html__( 'Add to Cart link', 'catalog-mode-pricing-enquiry-forms-promotions' ),                    
+                    'url' => esc_html__( 'Page URL', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 ),
                 'width' => '100%',
                 'fold_id' => 'add_to_cart_link_type',
@@ -242,8 +246,8 @@ if ( !class_exists( 'WModes_Admin_Catalog_Mode_Types_Shop' ) && !defined( 'WMODE
                 'id' => 'add_to_cart_url',
                 'type' => 'textbox',
                 'column_size' => 2,
-                'column_title' => esc_html__( 'Destination URL', 'wmodes-tdm' ),
-                'tooltip' => esc_html__( 'This controls the destination web page URL that the "Add to Cart" should link to', 'wmodes-tdm' ),
+                'column_title' => esc_html__( 'Destination URL', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'tooltip' => esc_html__( 'This controls the destination web page URL that the "Add to Cart" should link to', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'default' => '',
                 'placeholder' => 'Type url here....',
                 'fold' => array(
@@ -267,10 +271,10 @@ if ( !class_exists( 'WModes_Admin_Catalog_Mode_Types_Shop' ) && !defined( 'WMODE
                 'id' => 'add_to_cart_textblock',
                 'type' => 'textarea',
                 'column_size' => 1,
-                'column_title' => esc_html__( 'Text Block - Content', 'wmodes-tdm' ),
-                'tooltip' => esc_html__( "Determines text block's contents", 'wmodes-tdm' ),
-                'default' => esc_html__( 'Text Block', 'wmodes-tdm' ),
-                'placeholder' => esc_html__( 'Type here...', 'wmodes-tdm' ),
+                'column_title' => esc_html__( 'Text Block - Content', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'tooltip' => esc_html__( "Determines text block's contents", 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'default' => esc_html__( 'Text Block', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'placeholder' => esc_html__( 'Type here...', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'rows' => 2,
                 'width' => '100%',
             );
@@ -286,12 +290,12 @@ if ( !class_exists( 'WModes_Admin_Catalog_Mode_Types_Shop' ) && !defined( 'WMODE
                 'id' => 'enable_price',
                 'type' => 'select2',
                 'column_size' => 1,
-                'column_title' => esc_html__( 'Price Visibility', 'wmodes-tdm' ),
-                'tooltip' => esc_html__( 'Controls price visibility on shop page', 'wmodes-tdm' ),
+                'column_title' => esc_html__( 'Price Visibility', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'tooltip' => esc_html__( 'Controls price visibility on shop page', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'default' => 'show',
                 'options' => array(
-                    'show' => esc_html__( 'Show price', 'wmodes-tdm' ),
-                    'hide' => esc_html__( 'Hide price', 'wmodes-tdm' ),
+                    'show' => esc_html__( 'Show price', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                    'hide' => esc_html__( 'Hide price', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 ),
                 'width' => '100%',
                 'fold_id' => 'shop_price'
@@ -301,13 +305,13 @@ if ( !class_exists( 'WModes_Admin_Catalog_Mode_Types_Shop' ) && !defined( 'WMODE
                 'id' => 'price_replace',
                 'type' => 'select2',
                 'column_size' => 1,
-                'column_title' => esc_html__( 'Replace With', 'wmodes-tdm' ),
-                'tooltip' => esc_html__( 'Controls price replacement on shop page', 'wmodes-tdm' ),
+                'column_title' => esc_html__( 'Replace With', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'tooltip' => esc_html__( 'Controls price replacement on shop page', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'default' => 'no',
                 'disabled_list_filter' => 'wmodes-admin/get-disabled-list',
                 'options' => array(
-                    'no' => esc_html__( 'Nothing', 'wmodes-tdm' ),
-                    'replace_textblock' => esc_html__( 'Text Block', 'wmodes-tdm' ),
+                    'no' => esc_html__( 'Nothing', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                    'replace_textblock' => esc_html__( 'Text Block', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 ),
                 'width' => '100%',
                 'fold_id' => 'price_replace',
@@ -325,8 +329,8 @@ if ( !class_exists( 'WModes_Admin_Catalog_Mode_Types_Shop' ) && !defined( 'WMODE
                 'id' => 'prices_textblock_ui_id',
                 'type' => 'select2',
                 'column_size' => 1,
-                'column_title' => esc_html__( 'Text Block - UI Design', 'wmodes-tdm' ),
-                'tooltip' => esc_html__( "Controls the text block's UI design on the shop page", 'wmodes-tdm' ),
+                'column_title' => esc_html__( 'Text Block - UI Design', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'tooltip' => esc_html__( "Controls the text block's UI design on the shop page", 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'default' => '2234343',
                 'data' => 'wmodes:textblock_designs',
                 'width' => '100%',
@@ -350,10 +354,10 @@ if ( !class_exists( 'WModes_Admin_Catalog_Mode_Types_Shop' ) && !defined( 'WMODE
                 'id' => 'price_textblock',
                 'type' => 'textarea',
                 'column_size' => 1,
-                'column_title' => esc_html__( 'Text Block - Content', 'wmodes-tdm' ),
-                'tooltip' => esc_html__( "Determines text block's contents", 'wmodes-tdm' ),
-                'default' => esc_html__( 'Text Block', 'wmodes-tdm' ),
-                'placeholder' => esc_html__( 'Type here...', 'wmodes-tdm' ),
+                'column_title' => esc_html__( 'Text Block - Content', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'tooltip' => esc_html__( "Determines text block's contents", 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'default' => esc_html__( 'Text Block', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'placeholder' => esc_html__( 'Type here...', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'rows' => 2,
                 'width' => '100%',
             );

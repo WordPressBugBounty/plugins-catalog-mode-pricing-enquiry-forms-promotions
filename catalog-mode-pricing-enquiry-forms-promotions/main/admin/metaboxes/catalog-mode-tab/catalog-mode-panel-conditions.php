@@ -1,5 +1,9 @@
 <?php
 
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 if ( !class_exists( 'Reon' ) ) {
     return;
 }
@@ -38,7 +42,7 @@ if ( !class_exists( 'WModes_Admin_Catalog_Mode_MetaBox_Panel_Conditions' ) ) {
                 'module' => 'catalog-modes',
                 'is_global' => false,
                 'product_id' => $product_id,
-                'text' => esc_html__( 'catalog mode', 'wmodes-tdm' ),
+                'text' => esc_html__( 'catalog mode', 'catalog-mode-pricing-enquiry-forms-promotions' ),
             );
 
             $in_fields[] = array(

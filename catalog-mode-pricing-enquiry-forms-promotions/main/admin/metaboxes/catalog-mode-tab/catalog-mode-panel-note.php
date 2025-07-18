@@ -1,5 +1,9 @@
 <?php
 
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 if (!class_exists('Reon')) {
     return;
 }
@@ -37,11 +41,11 @@ if (!class_exists('WModes_Admin_Catalog_Mode_MetaBox_Panel_Note')) {
                             array(
                                 'id' => 'admin_note',
                                 'type' => 'textbox',
-                                'tooltip' => esc_html__('Adds a private note for reference purposes', 'wmodes-tdm'),
+                                'tooltip' => esc_html__('Adds a private note for reference purposes', 'catalog-mode-pricing-enquiry-forms-promotions'),
                                 'column_size' => 1,
-                                'column_title' => esc_html__('Admin Note', 'wmodes-tdm'),
+                                'column_title' => esc_html__('Admin Note', 'catalog-mode-pricing-enquiry-forms-promotions'),
                                 'default' => '',
-                                'placeholder' => esc_html__('Type here...', 'wmodes-tdm'),
+                                'placeholder' => esc_html__('Type here...', 'catalog-mode-pricing-enquiry-forms-promotions'),
                                 'width' => '100%',
                             ),
                         ),

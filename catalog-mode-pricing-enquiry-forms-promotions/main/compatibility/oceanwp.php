@@ -1,5 +1,9 @@
 <?php
 
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 if ( !class_exists( 'WModes_OceanWP' ) && class_exists( 'OCEANWP_Theme_Class' ) ) {
 
     class WModes_OceanWP {

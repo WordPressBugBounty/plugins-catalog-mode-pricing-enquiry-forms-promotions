@@ -1,17 +1,19 @@
 <?php
 
 /*
- * Plugin Name: WooCommerce Catalog Mode - Product Pricing, Enquiry Forms & Promotions
+ * Plugin Name: wModes - Catalog Mode, Product Pricing, Enquiry Forms & Promotions | for WooCommerce
  * Plugin URI: https://codecanyon.net/item/woocommerce-catalog-mode-pricing-enquiry-forms-promotions/43498179?ref=zendcrew
  * Description: An All-purpose WooCommerce catalog mode, product pricing and promotion toolkit.
- * Version: 1.1.8
+ * Version: 1.2.1
  * Author: zendcrew
  * Author URI: https://codecanyon.net/user/zendcrew?ref=zendcrew
- * Text Domain: wmodes-tdm
+ * Text Domain: catalog-mode-pricing-enquiry-forms-promotions
  * Domain Path: /languages/
  * Requires at least: 5.8
  * Requires PHP: 5.6
  * WC requires at least: 5.6
+ * License: GPL v2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  * 
  * Tested up to: 6.8
  * WC tested up to: 9.9
@@ -30,7 +32,7 @@ if ( is_admin() ) {
 
 if ( !defined( 'WMODES_VERSION' ) ) {
 
-    define( 'WMODES_VERSION', '1.1.8' );
+    define( 'WMODES_VERSION', '1.2.1' );
 }
 
 if ( !defined( 'WMODES_MAIN_FILE' ) ) {
@@ -53,12 +55,13 @@ if ( !class_exists( 'WModes_Init' ) ) {
         
         public function load_textdomain() {
 
-            load_plugin_textdomain( 'wmodes-tdm', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+            load_plugin_textdomain( 'catalog-mode-pricing-enquiry-forms-promotions', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
         }
 
         public function plugin_loaded() {
 
             if ( function_exists( 'WC' ) ) { // Check if WooCommerce is active
+                
                 $this->init();
             } else {
 
@@ -80,7 +83,7 @@ if ( !class_exists( 'WModes_Init' ) ) {
 
         public function missing_notice() {
 
-            echo '<div class="error"><p><strong>' . esc_html__( 'WooCommerce Catalog Mode - Product Pricing, Enquiry Forms & Promotions requires WooCommerce be installed and activated.', 'wmodes-tdm' ) . '</strong></p></div>';
+            echo '<div class="error"><p><strong>' . esc_html__( 'WooCommerce Catalog Mode - Product Pricing, Enquiry Forms & Promotions requires WooCommerce be installed and activated.', 'catalog-mode-pricing-enquiry-forms-promotions' ) . '</strong></p></div>';
         }
 
         private function init() {

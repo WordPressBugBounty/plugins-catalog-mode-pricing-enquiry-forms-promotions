@@ -1,5 +1,9 @@
 <?php
 
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 if ( !class_exists( 'Reon' ) ) {
     return;
 }
@@ -39,8 +43,8 @@ if ( !class_exists( 'WModes_Admin_Sale_Query_Settings' ) && !defined( 'WMODES_PR
                 'type' => 'paneltitle',
                 'full_width' => true,
                 'center_head' => true,
-                'title' => esc_html__( 'On-Sale Products Query', 'wmodes-tdm' ),
-                'desc' => wp_kses( __( 'Use this panel to control on-sale products query settings, use <a href="https://docs.woocommerce.com/document/woocommerce-shortcodes/" target="_blank">WooCommerce shortcodes</a> to display your products', 'wmodes-tdm' ), $allow_html ),
+                'title' => esc_html__( 'On-Sale Products Query', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'desc' => wp_kses( __( 'Use this panel to control on-sale products query settings, use <a href="https://docs.woocommerce.com/document/woocommerce-shortcodes/" target="_blank">WooCommerce shortcodes</a> to display your products', 'catalog-mode-pricing-enquiry-forms-promotions' ), $allow_html ),
             );
 
             $in_fields[] = array(
@@ -62,12 +66,12 @@ if ( !class_exists( 'WModes_Admin_Sale_Query_Settings' ) && !defined( 'WMODES_PR
                 'id' => 'enable',
                 'type' => 'select2',
                 'column_size' => 1,
-                'column_title' => esc_html__( 'Enable', 'wmodes-tdm' ),
-                'tooltip' => esc_html__( 'Enables on-sale products query', 'wmodes-tdm' ),
+                'column_title' => esc_html__( 'Enable', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'tooltip' => esc_html__( 'Enables on-sale products query', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'default' => array( 'no' ),
                 'options' => array(
-                    'yes' => esc_html__( 'Yes', 'wmodes-tdm' ),
-                    'no' => esc_html__( 'No', 'wmodes-tdm' ),
+                    'yes' => esc_html__( 'Yes', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                    'no' => esc_html__( 'No', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 ),
                 'width' => '100%',
                 'fold_id' => 'enable_on_sale',
@@ -78,10 +82,10 @@ if ( !class_exists( 'WModes_Admin_Sale_Query_Settings' ) && !defined( 'WMODES_PR
                 'type' => 'textbox',
                 'input_type' => 'number',
                 'column_size' => 2,
-                'column_title' => esc_html__( 'Number of Products', 'wmodes-tdm' ),
-                'tooltip' => esc_html__( 'Determines the maximum total number of the query result', 'wmodes-tdm' ),
+                'column_title' => esc_html__( 'Number of Products', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'tooltip' => esc_html__( 'Determines the maximum total number of the query result', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'default' => '50',
-                'placeholder' => esc_html__( '0.00', 'wmodes-tdm' ),
+                'placeholder' => esc_html__( '0.00', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'width' => '100%',
                 'attributes' => array(
                     'min' => '0',
@@ -101,10 +105,10 @@ if ( !class_exists( 'WModes_Admin_Sale_Query_Settings' ) && !defined( 'WMODES_PR
                 'type' => 'textbox',
                 'input_type' => 'number',
                 'column_size' => 2,
-                'column_title' => esc_html__( 'Cache Duration', 'wmodes-tdm' ),
-                'tooltip' => esc_html__( 'Determines the cache duration of the query result in minutes', 'wmodes-tdm' ),
+                'column_title' => esc_html__( 'Cache Duration', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'tooltip' => esc_html__( 'Determines the cache duration of the query result in minutes', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'default' => '30',
-                'placeholder' => esc_html__( '0.00', 'wmodes-tdm' ),
+                'placeholder' => esc_html__( '0.00', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'width' => '100%',
                 'attributes' => array(
                     'min' => '0',

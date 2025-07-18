@@ -1,5 +1,9 @@
 <?php
 
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 if ( !class_exists( 'Reon' ) ) {
     return;
 }
@@ -20,7 +24,7 @@ if ( !class_exists( 'WModes_Admin_Product_Option_Type_Stock' ) && !defined( 'WMO
         public static function get_types( $in_options, $args = array() ) {
 
             $in_options[ 'stock' ] = array(
-                'title' => esc_html__( 'Stock Settings', 'wmodes-tdm' ),
+                'title' => esc_html__( 'Stock Settings', 'catalog-mode-pricing-enquiry-forms-promotions' ),
             );
 
             return $in_options;
@@ -66,12 +70,12 @@ if ( !class_exists( 'WModes_Admin_Product_Option_Type_Stock' ) && !defined( 'WMO
                 'id' => 'manage_stock',
                 'type' => 'select2',
                 'column_size' => 1,
-                'column_title' => esc_html__( 'Manage Stock', 'wmodes-tdm' ),
-                'tooltip' => esc_html__( 'Enables stock management at product level', 'wmodes-tdm' ),
+                'column_title' => esc_html__( 'Manage Stock', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'tooltip' => esc_html__( 'Enables stock management at product level', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'disabled_list_filter' => 'wmodes-admin/get-disabled-list',
                 'default' => 'no',
                 'options' => array(
-                    'no' => esc_html__( 'No', 'wmodes-tdm' ),
+                    'no' => esc_html__( 'No', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 ),
                 'width' => '100%',
                 'fold_id' => 'manage_stock',
@@ -81,8 +85,8 @@ if ( !class_exists( 'WModes_Admin_Product_Option_Type_Stock' ) && !defined( 'WMO
                 'id' => 'stock_status',
                 'type' => 'select2',
                 'column_size' => 3,
-                'column_title' => esc_html__( 'Stock Status', 'wmodes-tdm' ),
-                'tooltip' => esc_html__( 'Controls whether or not the product is listed as "in stock" or "out of stock" on the frontend', 'wmodes-tdm' ),
+                'column_title' => esc_html__( 'Stock Status', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'tooltip' => esc_html__( 'Controls whether or not the product is listed as "in stock" or "out of stock" on the frontend', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'default' => 'instock',
                 'options' => wc_get_product_stock_status_options(),
                 'fold' => array(
@@ -106,14 +110,14 @@ if ( !class_exists( 'WModes_Admin_Product_Option_Type_Stock' ) && !defined( 'WMO
                 'id' => 'manage_stock',
                 'type' => 'select2',
                 'column_size' => 1,
-                'column_title' => esc_html__( 'Manage Stock', 'wmodes-tdm' ),
-                'tooltip' => esc_html__( 'Enables stock management at product level', 'wmodes-tdm' ),
+                'column_title' => esc_html__( 'Manage Stock', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'tooltip' => esc_html__( 'Enables stock management at product level', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'disabled_list_filter' => 'wmodes-admin/get-disabled-list',
                 'default' => 'no',
                 'options' => array(
-                    'prem_1' => esc_html__( 'Yes (Premium)', 'wmodes-tdm' ),
-                    'prem_2' => esc_html__( 'Yes (%) (Premium)', 'wmodes-tdm' ),
-                    'no' => esc_html__( 'No', 'wmodes-tdm' ),
+                    'prem_1' => esc_html__( 'Yes (Premium)', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                    'prem_2' => esc_html__( 'Yes (%) (Premium)', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                    'no' => esc_html__( 'No', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 ),
                 'width' => '100%',
                 'fold_id' => 'manage_stock',
@@ -123,8 +127,8 @@ if ( !class_exists( 'WModes_Admin_Product_Option_Type_Stock' ) && !defined( 'WMO
                 'id' => 'stock_status',
                 'type' => 'select2',
                 'column_size' => 2,
-                'column_title' => esc_html__( 'Stock Status', 'wmodes-tdm' ),
-                'tooltip' => esc_html__( 'Controls whether or not the product is listed as "in stock" or "out of stock" on the frontend', 'wmodes-tdm' ),
+                'column_title' => esc_html__( 'Stock Status', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'tooltip' => esc_html__( 'Controls whether or not the product is listed as "in stock" or "out of stock" on the frontend', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'default' => 'instock',
                 'options' => wc_get_product_stock_status_options(),
                 'fold' => array(

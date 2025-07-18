@@ -1,5 +1,9 @@
 <?php
 
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 if ( !class_exists( 'Reon' ) ) {
     return;
 }
@@ -46,9 +50,9 @@ if ( !class_exists( 'WModes_Admin_Product_Option_Types' ) ) {
         public static function get_shop_loop_types( $args ) {
 
             $shop_loop_types = array(
-                'main' => esc_html__( 'Main Shop &amp; Archive Loops', 'wmodes-tdm' ),
-                'widgets' => esc_html__( 'Widget Loops', 'wmodes-tdm' ),
-                'shortcode' => esc_html__( 'Shortcode Loops', 'wmodes-tdm' ),
+                'main' => esc_html__( 'Main Shop &amp; Archive Loops', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'widgets' => esc_html__( 'Widget Loops', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'shortcode' => esc_html__( 'Shortcode Loops', 'catalog-mode-pricing-enquiry-forms-promotions' ),
             );
 
 

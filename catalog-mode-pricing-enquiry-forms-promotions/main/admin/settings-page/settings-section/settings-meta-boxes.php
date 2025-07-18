@@ -1,5 +1,9 @@
 <?php
 
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 if ( !class_exists( 'Reon' ) ) {
     return;
 }
@@ -37,8 +41,8 @@ if ( !class_exists( 'WModes_Admin_Meta_Boxes_Settings' ) ) {
                 'type' => 'paneltitle',
                 'full_width' => true,
                 'center_head' => true,
-                'title' => esc_html__( 'Product Data Metabox', 'wmodes-tdm' ),
-                'desc' => esc_html__( 'Use these settings to enable catalog mode, product pricing, product settings &amp; promotions on "Product Data" metabox', 'wmodes-tdm' ),
+                'title' => esc_html__( 'Product Data Metabox', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'desc' => esc_html__( 'Use these settings to enable catalog mode, product pricing, product settings &amp; promotions on "Product Data" metabox', 'catalog-mode-pricing-enquiry-forms-promotions' ),
             );
 
             $in_fields[] = array(
@@ -51,12 +55,12 @@ if ( !class_exists( 'WModes_Admin_Meta_Boxes_Settings' ) ) {
                         'id' => 'catalog_mode',
                         'type' => 'select2',
                         'column_size' => 1,
-                        'tooltip' => esc_html__( 'Enables catalog mode settings on "Product Data" metabox', 'wmodes-tdm' ),
-                        'column_title' => esc_html__( 'Enable Catalog Mode', 'wmodes-tdm' ),
+                        'tooltip' => esc_html__( 'Enables catalog mode settings on "Product Data" metabox', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                        'column_title' => esc_html__( 'Enable Catalog Mode', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                         'default' => array( 'yes' ),
                         'options' => array(
-                            'yes' => esc_html__( 'Yes', 'wmodes-tdm' ),
-                            'no' => esc_html__( 'No', 'wmodes-tdm' ),
+                            'yes' => esc_html__( 'Yes', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                            'no' => esc_html__( 'No', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                         ),
                         'width' => '100%',
                     ),
@@ -64,12 +68,12 @@ if ( !class_exists( 'WModes_Admin_Meta_Boxes_Settings' ) ) {
                         'id' => 'product_pricing',
                         'type' => 'select2',
                         'column_size' => 1,
-                        'tooltip' => esc_html__( 'Enables product pricing settings on "Product Data" metabox', 'wmodes-tdm' ),
-                        'column_title' => esc_html__( 'Enable Product Pricing', 'wmodes-tdm' ),
+                        'tooltip' => esc_html__( 'Enables product pricing settings on "Product Data" metabox', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                        'column_title' => esc_html__( 'Enable Product Pricing', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                         'default' => array( 'yes' ),
                         'options' => array(
-                            'yes' => esc_html__( 'Yes', 'wmodes-tdm' ),
-                            'no' => esc_html__( 'No', 'wmodes-tdm' ),
+                            'yes' => esc_html__( 'Yes', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                            'no' => esc_html__( 'No', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                         ),
                         'width' => '100%',
                     ),
@@ -77,12 +81,12 @@ if ( !class_exists( 'WModes_Admin_Meta_Boxes_Settings' ) ) {
                         'id' => 'product_options',
                         'type' => 'select2',
                         'column_size' => 1,
-                        'tooltip' => esc_html__( 'Enables product settings &amp; promotions settings on "Product Data" metabox', 'wmodes-tdm' ),
-                        'column_title' => esc_html__( 'Enable Product Settings &amp; Promotions', 'wmodes-tdm' ),
+                        'tooltip' => esc_html__( 'Enables product settings &amp; promotions settings on "Product Data" metabox', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                        'column_title' => esc_html__( 'Enable Product Settings &amp; Promotions', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                         'default' => array( 'yes' ),
                         'options' => array(
-                            'yes' => esc_html__( 'Yes', 'wmodes-tdm' ),
-                            'no' => esc_html__( 'No', 'wmodes-tdm' ),
+                            'yes' => esc_html__( 'Yes', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                            'no' => esc_html__( 'No', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                         ),
                         'width' => '100%',
                     ),

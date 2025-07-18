@@ -12,7 +12,7 @@ msgstr ""
 "Language: en_US\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.2.2\n"
-"X-Domain: wmodes-tdm\n"
+"X-Domain: catalog-mode-pricing-enquiry-forms-promotions\n"
 
 #. Plugin Name of the plugin
 #: D:\Freelancer\Envato\CodeCayon\catalog-mode-pricing-enquiry-form-promotions\repo\trunk\catalog-mode-pricing-enquiry-forms-promotions.php

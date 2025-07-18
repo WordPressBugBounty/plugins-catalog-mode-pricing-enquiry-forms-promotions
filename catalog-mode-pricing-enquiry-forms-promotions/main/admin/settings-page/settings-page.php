@@ -1,5 +1,9 @@
 <?php
 
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 if ( !class_exists( 'Reon' ) ) {
 
     return;
@@ -51,7 +55,6 @@ if ( !class_exists( 'WModes_Admin_Page' ) ) {
             self::init_data_store();
 
             add_filter( 'reon/get-option-page-' . self::$option_name . '-sections', array( new self(), 'config_all_sections' ), 10 );
-            add_filter( 'reon/get-option-page-' . self::$option_name . '-section-title', array( new self(), 'get_page_title' ), 10, 2 );
 
             add_filter( 'reon/process-save-options-' . self::$option_name, array( new self(), 'save_options' ), 10 );
 
@@ -73,11 +76,13 @@ if ( !class_exists( 'WModes_Admin_Page' ) ) {
 
         public static function init_page() {
 
-            $version_text = sprintf( esc_html__( 'Lite v%s', 'wmodes-tdm' ), WMODES_VERSION );
+            /* translators: 1:  plugin version */
+            $version_text = sprintf( esc_html__( 'Lite v%s', 'catalog-mode-pricing-enquiry-forms-promotions' ), WMODES_VERSION );
 
             if ( defined( 'WMODES_PREMIUM_ADDON' ) ) {
 
-                $version_text = sprintf( esc_html__( 'Premium v%s', 'wmodes-tdm' ), WMODES_VERSION );
+                /* translators: 1:  plugin version */
+                $version_text = sprintf( esc_html__( 'Premium v%s', 'catalog-mode-pricing-enquiry-forms-promotions' ), WMODES_VERSION );
             }
 
             $args = array(
@@ -94,8 +99,8 @@ if ( !class_exists( 'WModes_Admin_Page' ) ) {
                 'display' => array(
                     'enabled' => true,
                     'image' => WMODES_ASSETS_URL . 'images/aside_logo.png',
-                    'title' => esc_html__( 'Catalog Mode', 'wmodes-tdm' ),
-                    'sub_title' => esc_html__( 'Pricing, Enquiry Forms & Promotions', 'wmodes-tdm' ),
+                    'title' => esc_html__( 'Catalog Mode', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                    'sub_title' => esc_html__( 'Pricing, Enquiry Forms & Promotions', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                     'version' => $version_text,
                     'styles' => array(
                         'bg_image' => WMODES_ASSETS_URL . 'images/aside_bg.png',
@@ -105,16 +110,16 @@ if ( !class_exists( 'WModes_Admin_Page' ) ) {
                     ),
                 ),
                 'ajax' => array(
-                    'save_msg' => esc_html__( 'Done!!', 'wmodes-tdm' ),
-                    'save_error_msg' => esc_html__( 'Unable to save your settings', 'wmodes-tdm' ),
-                    'reset_msg' => esc_html__( 'Done!!', 'wmodes-tdm' ),
-                    'reset_error_msg' => esc_html__( 'Unable to reset reset your settings', 'wmodes-tdm' ),
-                    'nonce_error_msg' => esc_html__( 'invalid nonce', 'wmodes-tdm' ),
+                    'save_msg' => esc_html__( 'Done!!', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                    'save_error_msg' => esc_html__( 'Unable to save your settings', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                    'reset_msg' => esc_html__( 'Done!!', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                    'reset_error_msg' => esc_html__( 'Unable to reset reset your settings', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                    'nonce_error_msg' => esc_html__( 'invalid nonce', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 ),
                 'menu' => array(
                     'enable' => true,
-                    'title' => esc_html__( 'Catalog Mode - Pricing, Enquiry Forms & Promotions', 'wmodes-tdm' ),
-                    'page_title' => esc_html__( 'Catalog Mode - Pricing, Enquiry Forms & Promotions', 'wmodes-tdm' ),
+                    'title' => esc_html__( 'Catalog Mode - Pricing, Enquiry Forms & Promotions', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                    'page_title' => esc_html__( 'Catalog Mode - Pricing, Enquiry Forms & Promotions', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                     'icon' => 'dashicons-admin-generic',
                     'priority' => 3,
                     'parent' => 'woocommerce',
@@ -123,38 +128,39 @@ if ( !class_exists( 'WModes_Admin_Page' ) ) {
                 'import_export' => array(
                     'enable' => true,
                     'min_height' => '565px',
-                    'title' => esc_html__( 'Import / Export', 'wmodes-tdm' ),
+                    'title' => esc_html__( 'Import / Export', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                    'header_title' => esc_html__( 'Import / Export', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                     'import' => array(
-                        'title' => esc_html__( 'Import Settings', 'wmodes-tdm' ),
-                        'desc' => esc_html__( 'Here you can import new settings. Simply paste the settings url or data on the field below.', 'wmodes-tdm' ),
-                        'url_button_text' => esc_html__( 'Import from url', 'wmodes-tdm' ),
-                        'url_textbox_desc' => esc_html__( "Paste the url to another site's settings below and click the 'Import Now' button.", 'wmodes-tdm' ),
-                        'url_textbox_hint' => esc_html__( "Paste the url to another site's settings here...", 'wmodes-tdm' ),
-                        'data_button_text' => esc_html__( 'Import Data', 'wmodes-tdm' ),
-                        'data_textbox_desc' => esc_html__( "Paste your backup settings below and click the 'Import Now' button.", 'wmodes-tdm' ),
-                        'data_textbox_hint' => esc_html__( 'Paste your backup settings here...', 'wmodes-tdm' ),
-                        'import_button_text' => esc_html__( 'Import Now', 'wmodes-tdm' ),
-                        'warn_text' => esc_html__( 'Warning! This will override all existing settings. proceed with caution!', 'wmodes-tdm' ),
+                        'title' => esc_html__( 'Import Settings', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                        'desc' => esc_html__( 'Here you can import new settings. Simply paste the settings url or data on the field below.', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                        'url_button_text' => esc_html__( 'Import from url', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                        'url_textbox_desc' => esc_html__( "Paste the url to another site's settings below and click the 'Import Now' button.", 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                        'url_textbox_hint' => esc_html__( "Paste the url to another site's settings here...", 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                        'data_button_text' => esc_html__( 'Import Data', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                        'data_textbox_desc' => esc_html__( "Paste your backup settings below and click the 'Import Now' button.", 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                        'data_textbox_hint' => esc_html__( 'Paste your backup settings here...', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                        'import_button_text' => esc_html__( 'Import Now', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                        'warn_text' => esc_html__( 'Warning! This will override all existing settings. proceed with caution!', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                     ),
                     'export' => array(
-                        'title' => esc_html__( 'Export Settings', 'wmodes-tdm' ),
-                        'desc' => esc_html__( 'Here you can backup your current settings. You can later use it to restore your settings.', 'wmodes-tdm' ),
-                        'download_button_text' => esc_html__( 'Download Data', 'wmodes-tdm' ),
-                        'url_button_text' => esc_html__( 'Export url', 'wmodes-tdm' ),
-                        'url_textbox_desc' => esc_html__( 'Copy the url below, use it to transfer the settings from this site.', 'wmodes-tdm' ),
-                        'data_button_text' => esc_html__( 'Export Data', 'wmodes-tdm' ),
-                        'data_textbox_desc' => esc_html__( 'Copy the data below, use it as your backup.', 'wmodes-tdm' ),
+                        'title' => esc_html__( 'Export Settings', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                        'desc' => esc_html__( 'Here you can backup your current settings. You can later use it to restore your settings.', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                        'download_button_text' => esc_html__( 'Download Data', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                        'url_button_text' => esc_html__( 'Export url', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                        'url_textbox_desc' => esc_html__( 'Copy the url below, use it to transfer the settings from this site.', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                        'data_button_text' => esc_html__( 'Export Data', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                        'data_textbox_desc' => esc_html__( 'Copy the data below, use it as your backup.', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                     ),
                 ),
                 'header_buttons' => array(
-                    'reset_all_text' => esc_html__( 'Reset All', 'wmodes-tdm' ),
-                    'reset_section_text' => esc_html__( 'Reset Section', 'wmodes-tdm' ),
-                    'save_section_text' => esc_html__( 'Save Section', 'wmodes-tdm' ),
+                    'reset_all_text' => esc_html__( 'Reset All', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                    'reset_section_text' => esc_html__( 'Reset Section', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                    'save_section_text' => esc_html__( 'Save Section', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 ),
                 'footer_buttons' => array(
-                    'reset_all_text' => esc_html__( 'Reset All', 'wmodes-tdm' ),
-                    'reset_section_text' => esc_html__( 'Reset Section', 'wmodes-tdm' ),
-                    'save_section_text' => esc_html__( 'Save Section', 'wmodes-tdm' ),
+                    'reset_all_text' => esc_html__( 'Reset All', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                    'reset_section_text' => esc_html__( 'Reset Section', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                    'save_section_text' => esc_html__( 'Save Section', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 ),
                 'page_links' => self::get_page_links(),
                 'social_links' => self::get_social_links(),
@@ -166,70 +172,66 @@ if ( !class_exists( 'WModes_Admin_Page' ) ) {
         public static function config_all_sections( $in_sections ) {
 
             $in_sections[] = array(
-                'title' => esc_html__( 'Catalog Modes', 'wmodes-tdm' ),
+                'title' => esc_html__( 'Catalog Modes', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'header_title' => esc_html__( 'Catalog Modes', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'id' => 'catalog_modes',
                 'group' => 1,
             );
 
             $in_sections[] = array(
-                'title' => esc_html__( 'Products Pricing', 'wmodes-tdm' ),
+                'title' => esc_html__( 'Products Pricing', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'header_title' => esc_html__( 'Products Pricing', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'id' => 'product_prices',
                 'group' => 2,
             );
 
 
             $in_sections[] = array(
-                'title' => esc_html__( 'Products Settings', 'wmodes-tdm' ),
+                'title' => esc_html__( 'Products Settings', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'header_title' => esc_html__( 'Products Settings', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'id' => 'product_options',
                 'group' => 3,
             );
 
             $in_sections[] = array(
-                'title' => esc_html__( 'UI Designs', 'wmodes-tdm' ),
+                'title' => esc_html__( 'UI Designs', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'header_title' => esc_html__( 'Product Badge Designs', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'id' => 'styles',
                 'group' => 4,
             );
 
             $in_sections[] = array(
-                'title' => esc_html__( 'Product Badge Designs', 'wmodes-tdm' ),
+                'title' => esc_html__( 'Product Badge Designs', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'header_title' => esc_html__( 'Product Badge Designs', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'id' => 'badge_styles_settings',
                 'group' => 4,
                 'subsection' => true
             );
 
             $in_sections[] = array(
-                'title' => esc_html__( 'Countdown Designs', 'wmodes-tdm' ),
+                'title' => esc_html__( 'Countdown Designs', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'header_title' => esc_html__( 'Countdown Designs', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'id' => 'countdown_styles_settings',
                 'group' => 5,
                 'subsection' => true
             );
 
             $in_sections[] = array(
-                'title' => esc_html__( 'Other UI Designs', 'wmodes-tdm' ),
+                'title' => esc_html__( 'Other UI Designs', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'header_title' => esc_html__( 'Other UI Designs', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'id' => 'styles_settings',
                 'group' => 6,
                 'subsection' => true
             );
 
             $in_sections[] = array(
-                'title' => esc_html__( 'General Settings', 'wmodes-tdm' ),
+                'title' => esc_html__( 'General Settings', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'header_title' => esc_html__( 'General Settings', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'id' => 'settings',
                 'group' => 7,
             );
 
             return $in_sections;
-        }
-
-        public static function get_page_title( $in_title, $tab ) {
-
-            $section_titles = self::get_section_titles();
-
-            if ( isset( $section_titles[ $tab ] ) ) {
-
-                return $section_titles[ $tab ];
-            }
-
-            return $in_title;
         }
 
         public static function init_data_store() {
@@ -266,9 +268,10 @@ if ( !class_exists( 'WModes_Admin_Page' ) ) {
 
                 unset( $links[ 'deactivate' ] );
 
-                $add_on_text = esc_html__( 'WooCommerce Catalog Mode - Premium (Add-On)', 'wmodes-tdm' );
+                $add_on_text = esc_html__( 'wModes - Catalog Mode, Product Pricing, Enquiry Forms & Promotions (Premium Add-On) | for WooCommerce', 'catalog-mode-pricing-enquiry-forms-promotions' );
 
-                $required_text = sprintf( esc_html__( 'Required by %s', 'wmodes-tdm' ), $add_on_text );
+                /* translators: 1:  plugin name */
+                $required_text = sprintf( esc_html__( 'Required by %s', 'catalog-mode-pricing-enquiry-forms-promotions' ), $add_on_text );
 
                 $no_deactivate_tag = '<span style="color: #313639">' . $required_text . '</span>';
 
@@ -277,13 +280,13 @@ if ( !class_exists( 'WModes_Admin_Page' ) ) {
                 return $links;
             }
 
-            $doc_link = '<a href="' . esc_url( 'https://support.zendcrew.cc/portal/en/kb/woocommerce-catalog-mode-enquiry-forms' ) . '" target="_blank">' . esc_html__( 'Documentation', 'wmodes-tdm' ) . '</a>';
+            $doc_link = '<a href="' . esc_url( 'https://support.zendcrew.cc/portal/en/kb/woocommerce-catalog-mode-enquiry-forms' ) . '" target="_blank">' . esc_html__( 'Documentation', 'catalog-mode-pricing-enquiry-forms-promotions' ) . '</a>';
 
             array_unshift( $links, $doc_link );
 
             $settings_url = admin_url( 'admin.php?page=wmodes-settings' );
 
-            $settings_link = '<a href="' . esc_url( $settings_url ) . '">' . esc_html__( 'Settings', 'wmodes-tdm' ) . '</a>';
+            $settings_link = '<a href="' . esc_url( $settings_url ) . '">' . esc_html__( 'Settings', 'catalog-mode-pricing-enquiry-forms-promotions' ) . '</a>';
 
             array_unshift( $links, $settings_link );
 
@@ -293,8 +296,8 @@ if ( !class_exists( 'WModes_Admin_Page' ) ) {
         public static function get_premium_messages( $message_id = '' ) {
 
             $premium_url = "https://codecanyon.net/item/woocommerce-catalog-mode-pricing-enquiry-forms-promotions/43498179?ref=zendcrew";
-            $message = esc_html__( 'This feature is available on premium version', 'wmodes-tdm' );
-            $link_text = esc_html__( 'Premium Feature', 'wmodes-tdm' );
+            $message = esc_html__( 'This feature is available on premium version', 'catalog-mode-pricing-enquiry-forms-promotions' );
+            $link_text = esc_html__( 'Premium Feature', 'catalog-mode-pricing-enquiry-forms-promotions' );
 
             switch ( $message_id ) {
 
@@ -360,7 +363,7 @@ if ( !class_exists( 'WModes_Admin_Page' ) ) {
             $page_links = array(
                 array(
                     'id' => 'wmds_documentation',
-                    'title' => esc_html__( 'Documentation', 'wmodes-tdm' ),
+                    'title' => esc_html__( 'Documentation', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                     'icon' => 'fa fa-file-text',
                     'href' => esc_url( 'https://support.zendcrew.cc/portal/en/kb/woocommerce-catalog-mode-enquiry-forms' ),
                     'target' => '_blank',
@@ -372,7 +375,7 @@ if ( !class_exists( 'WModes_Admin_Page' ) ) {
 
                 $page_links[] = array(
                     'id' => 'wmds_help',
-                    'title' => esc_html__( 'Help', 'wmodes-tdm' ),
+                    'title' => esc_html__( 'Help', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                     'icon' => 'fa fa-question-circle',
                     'href' => esc_url( 'https://support.zendcrew.cc/portal/en/newticket' ),
                     'target' => '_blank',
@@ -382,7 +385,7 @@ if ( !class_exists( 'WModes_Admin_Page' ) ) {
 
                 $page_links[] = array(
                     'id' => 'wmds_get_premium',
-                    'title' => esc_html__( 'Premium Version', 'wmodes-tdm' ),
+                    'title' => esc_html__( 'Premium Version', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                     'icon' => 'fa fa-file-text-o',
                     'href' => esc_url( 'https://codecanyon.net/item/woocommerce-catalog-mode-pricing-enquiry-forms-promotions/43498179?ref=zendcrew' ),
                     'target' => '_blank',
@@ -398,50 +401,33 @@ if ( !class_exists( 'WModes_Admin_Page' ) ) {
             return array(
                 array(
                     'id' => 'wmds_facebook',
-                    'title' => esc_html__( 'Facebook', 'wmodes-tdm' ),
+                    'title' => esc_html__( 'Facebook', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                     'icon' => 'fa fa-facebook',
                     'href' => esc_url( 'http://www.facebook.com/zendcrew' ),
                     'target' => '_blank',
                 ),
                 array(
                     'id' => 'wmds_linkedin',
-                    'title' => esc_html__( 'LinkedIn', 'wmodes-tdm' ),
+                    'title' => esc_html__( 'LinkedIn', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                     'icon' => 'fa fa-linkedin',
                     'href' => esc_url( 'https://www.linkedin.com/company/zendcrew' ),
                     'target' => '_blank',
                 ),
                 array(
                     'id' => 'wmds_stack_overflow',
-                    'title' => esc_html__( 'Stack Overflow', 'wmodes-tdm' ),
+                    'title' => esc_html__( 'Stack Overflow', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                     'icon' => 'fa fa-stack-overflow',
                     'href' => esc_url( 'https://stackoverflow.com/users/8692713/zendcrew' ),
                     'target' => '_blank',
                 ),
                 array(
                     'id' => 'wmds_instagram',
-                    'title' => esc_html__( 'Instagram', 'wmodes-tdm' ),
+                    'title' => esc_html__( 'Instagram', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                     'icon' => 'fa fa-instagram',
                     'href' => esc_url( 'https://www.instagram.com/zendcrew/' ),
                     'target' => '_blank',
                 ),
             );
-        }
-
-        private static function get_section_titles() {
-
-            $section_titles = array();
-
-            $section_titles[ 1 ] = esc_html__( 'Catalog Modes', 'wmodes-tdm' );
-            $section_titles[ 2 ] = esc_html__( 'Products Pricing', 'wmodes-tdm' );
-            $section_titles[ 3 ] = esc_html__( 'Products Settings', 'wmodes-tdm' );
-            $section_titles[ 4 ] = esc_html__( 'Product Badge Designs', 'wmodes-tdm' );
-            $section_titles[ 5 ] = esc_html__( 'Product Badge Designs', 'wmodes-tdm' );
-            $section_titles[ 6 ] = esc_html__( 'Countdown Designs', 'wmodes-tdm' );
-            $section_titles[ 7 ] = esc_html__( 'Other UI Designs', 'wmodes-tdm' );
-            $section_titles[ 8 ] = esc_html__( 'General Settings', 'wmodes-tdm' );
-            $section_titles[ 9 ] = esc_html__( 'Import / Export', 'wmodes-tdm' );
-
-            return $section_titles;
         }
 
     }

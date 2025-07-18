@@ -17,7 +17,7 @@ if ( !class_exists( 'WModes_Main' ) ) {
 
             if ( is_admin() ) {
 
-                add_action( 'reon/init', array( $this, 'load_admin_page' ) );
+                add_action( 'init', array( $this, 'load_admin_page' ) );
                 add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ), 20 );
             } else {
 

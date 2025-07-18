@@ -1,5 +1,9 @@
 <?php
 
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 if ( !class_exists( 'Reon' ) ) {
     return;
 }
@@ -16,8 +20,8 @@ if ( !class_exists( 'WModes_Admin_Product_Option_Type_Groups' ) ) {
 
         public static function get_groups( $in_groups, $args ) {
 
-            $in_groups[ 'settings' ] = esc_html__( 'Product Settings', 'wmodes-tdm' );
-            $in_groups[ 'promotions' ] = esc_html__( 'Promotion Settings', 'wmodes-tdm' );
+            $in_groups[ 'settings' ] = esc_html__( 'Product Settings', 'catalog-mode-pricing-enquiry-forms-promotions' );
+            $in_groups[ 'promotions' ] = esc_html__( 'Promotion Settings', 'catalog-mode-pricing-enquiry-forms-promotions' );
 
             return $in_groups;
         }

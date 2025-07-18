@@ -1,5 +1,9 @@
 <?php
 
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 if ( !class_exists( 'Reon' ) ) {
     return;
 }
@@ -19,14 +23,14 @@ if ( !class_exists( 'WModes_Admin_Condition_Type_DateTime' ) && !defined( 'WMODE
 
         public static function get_groups( $in_groups, $args ) {
 
-            $in_groups[ 'datetimes' ] = esc_html__( 'Dates &amp; Times', 'wmodes-tdm' );
+            $in_groups[ 'datetimes' ] = esc_html__( 'Dates &amp; Times', 'catalog-mode-pricing-enquiry-forms-promotions' );
 
             return $in_groups;
         }
 
         public static function get_conditions( $in_list, $args ) {
 
-            $in_list[ 'date_time' ] = esc_html__( 'Date &amp; Time', 'wmodes-tdm' );
+            $in_list[ 'date_time' ] = esc_html__( 'Date &amp; Time', 'catalog-mode-pricing-enquiry-forms-promotions' );
             
             return $in_list;
         }
@@ -38,9 +42,9 @@ if ( !class_exists( 'WModes_Admin_Condition_Type_DateTime' ) && !defined( 'WMODE
                 'type' => 'select2',
                 'default' => 'from',
                 'options' => array(
-                    'from' => esc_html__( 'From', 'wmodes-tdm' ),
-                    'to' => esc_html__( 'To', 'wmodes-tdm' ),
-                    'between' => esc_html__( 'Between', 'wmodes-tdm' ),
+                    'from' => esc_html__( 'From', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                    'to' => esc_html__( 'To', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                    'between' => esc_html__( 'Between', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 ),
                 'fold_id' => 'date_type',
                 'width' => '98%',
@@ -51,7 +55,7 @@ if ( !class_exists( 'WModes_Admin_Condition_Type_DateTime' ) && !defined( 'WMODE
                 'id' => 'from_date_time',
                 'type' => 'datetime',
                 'default' => '',
-                'placeholder' => esc_html__( 'yy-mm-dd 00:00:00', 'wmodes-tdm' ),
+                'placeholder' => esc_html__( 'yy-mm-dd 00:00:00', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'date_format' => 'yy-mm-dd',
                 'number_of_months' => 1,
                 'change_month' => true,
@@ -74,7 +78,7 @@ if ( !class_exists( 'WModes_Admin_Condition_Type_DateTime' ) && !defined( 'WMODE
                 'id' => 'to_date_time',
                 'type' => 'datetime',
                 'default' => '',
-                'placeholder' => esc_html__( 'yy-mm-dd 00:00:00', 'wmodes-tdm' ),
+                'placeholder' => esc_html__( 'yy-mm-dd 00:00:00', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'date_format' => 'yy-mm-dd',
                 'number_of_months' => 1,
                 'change_month' => true,
@@ -97,7 +101,7 @@ if ( !class_exists( 'WModes_Admin_Condition_Type_DateTime' ) && !defined( 'WMODE
                 'id' => 'date_time',
                 'type' => 'datetime',
                 'default' => '',
-                'placeholder' => esc_html__( 'yy-mm-dd 00:00:00', 'wmodes-tdm' ),
+                'placeholder' => esc_html__( 'yy-mm-dd 00:00:00', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'date_format' => 'yy-mm-dd',
                 'number_of_months' => 1,
                 'change_month' => true,

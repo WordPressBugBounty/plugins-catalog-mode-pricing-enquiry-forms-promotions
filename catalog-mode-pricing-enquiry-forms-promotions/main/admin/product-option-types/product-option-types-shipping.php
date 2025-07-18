@@ -1,5 +1,9 @@
 <?php
 
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 if ( !class_exists( 'Reon' ) ) {
     return;
 }
@@ -20,7 +24,7 @@ if ( !class_exists( 'WModes_Admin_Product_Option_Type_Shipping' ) && !defined( '
         public static function get_types( $in_options, $args = array() ) {
 
             $in_options[ 'shipping' ] = array(
-                'title' => esc_html__( 'Shipping Settings', 'wmodes-tdm' ),
+                'title' => esc_html__( 'Shipping Settings', 'catalog-mode-pricing-enquiry-forms-promotions' ),
             );
 
             return $in_options;
@@ -54,12 +58,12 @@ if ( !class_exists( 'WModes_Admin_Product_Option_Type_Shipping' ) && !defined( '
                 'id' => 'is_virtual',
                 'type' => 'select2',
                 'column_size' => 1,
-                'column_title' => esc_html__( 'Is Virtual', 'wmodes-tdm' ),
-                'tooltip' => esc_html__( 'Makes the product a virtual product, virtual products are intangible and are not shipped', 'wmodes-tdm' ),
+                'column_title' => esc_html__( 'Is Virtual', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'tooltip' => esc_html__( 'Makes the product a virtual product, virtual products are intangible and are not shipped', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'default' => 'no',
                 'options' => array(
-                    'yes' => esc_html__( 'Yes', 'wmodes-tdm' ),
-                    'no' => esc_html__( 'No', 'wmodes-tdm' ),
+                    'yes' => esc_html__( 'Yes', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                    'no' => esc_html__( 'No', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 ),
                 'width' => '100%',
                 'fold_id' => 'is_virtual',

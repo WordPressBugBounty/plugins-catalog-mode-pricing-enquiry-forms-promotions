@@ -1,5 +1,9 @@
 <?php
 
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 if ( !class_exists( 'Reon' ) ) {
     return;
 }
@@ -20,8 +24,9 @@ if ( !class_exists( 'WModes_Admin_Logic_Types_Product_Variations' ) && !defined(
                         'id' => 'is_any',
                         'type' => 'textblock',
                         'column_size' => 1,
-                        'column_title' => esc_html__( 'Product Variations', 'wmodes-tdm' ),
-                        'tooltip' => sprintf( esc_html__( 'Applies this %s to the specified product variations', 'wmodes-tdm' ), $args[ 'text' ] ),
+                        'column_title' => esc_html__( 'Product Variations', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                        /* translators: 1:  module name */
+                        'tooltip' => sprintf( esc_html__( 'Applies this %s to the specified product variations', 'catalog-mode-pricing-enquiry-forms-promotions' ), $args[ 'text' ] ),
                         'show_box' => true,
                         'text' => WModes_Admin_Page::get_premium_messages(),
                         'width' => '100%',

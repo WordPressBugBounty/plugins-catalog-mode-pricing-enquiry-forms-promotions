@@ -1,5 +1,9 @@
 <?php
 
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 if ( !class_exists( 'Reon' ) ) {
     return;
 }
@@ -56,8 +60,8 @@ if ( !class_exists( 'WModes_Admin_Catalog_Mode_Panel_Modes' ) ) {
                         'type' => 'paneltitle',
                         'full_width' => true,
                         'center_head' => true,
-                        'title' => esc_html__( 'Settings', 'wmodes-tdm' ),
-                        'desc' => esc_html__( 'List of catalog modes settings to apply, empty list will not apply any catalog mode option', 'wmodes-tdm' ),
+                        'title' => esc_html__( 'Settings', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                        'desc' => esc_html__( 'List of catalog modes settings to apply, empty list will not apply any catalog mode option', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                     )
                 ),
             );
@@ -75,7 +79,7 @@ if ( !class_exists( 'WModes_Admin_Catalog_Mode_Panel_Modes' ) ) {
                 'buttons_sep' => false,
                 'delete_button' => true,
                 'clone_button' => false,
-                'max_sections_msg' => esc_html__( 'Please upgrade to premium version in order to add more options', 'wmodes-tdm' ),
+                'max_sections_msg' => esc_html__( 'Please upgrade to premium version in order to add more options', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'css_class' => 'wmodes_list',
                 'field_css_class' => array( 'wmodes_list_field' ),
                 'width' => '100%',
@@ -93,7 +97,7 @@ if ( !class_exists( 'WModes_Admin_Catalog_Mode_Panel_Modes' ) ) {
                     'show_list' => true,
                     'list_icon' => 'fa fa-list',
                     'list_width' => '236px',
-                    'button_text' => esc_html__( 'Add Settings', 'wmodes-tdm' ),
+                    'button_text' => esc_html__( 'Add Settings', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 ),
             );
 

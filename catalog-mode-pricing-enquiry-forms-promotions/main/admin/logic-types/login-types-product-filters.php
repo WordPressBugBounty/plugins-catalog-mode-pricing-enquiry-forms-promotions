@@ -1,5 +1,9 @@
 <?php
 
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 if ( !class_exists( 'Reon' ) ) {
     return;
 }
@@ -23,8 +27,8 @@ if ( !class_exists( 'WModes_Admin_Logic_Types_Product_Filters' ) ) {
                 'new_field_args' => $args,
                 'full_width' => true,
                 'center_head' => true,
-                'title' => esc_html__( 'Products', 'wmodes-tdm' ),
-                'desc' => esc_html__( 'List of product, empty list will include all products', 'wmodes-tdm' ),
+                'title' => esc_html__( 'Products', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'desc' => esc_html__( 'List of product, empty list will include all products', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'white_repeater' => false,
                 'repeater_size' => 'smaller',
                 'buttons_sep' => false,
@@ -36,7 +40,7 @@ if ( !class_exists( 'WModes_Admin_Logic_Types_Product_Filters' ) ) {
                 'template_adder' => array(
                     'position' => 'right',
                     'show_list' => false,
-                    'button_text' => esc_html__( 'Add Product', 'wmodes-tdm' ),
+                    'button_text' => esc_html__( 'Add Product', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 ),
             );
 

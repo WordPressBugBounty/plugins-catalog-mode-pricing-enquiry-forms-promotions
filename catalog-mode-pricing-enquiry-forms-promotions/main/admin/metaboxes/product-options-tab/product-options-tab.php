@@ -1,5 +1,9 @@
 <?php
 
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 if (!class_exists('Reon')) {
     return;
 }
@@ -22,7 +26,7 @@ if (!class_exists('WModes_Admin_Product_Options_MetaBox_Tab')) {
 
         public static function init_metabox() {
             Reon::set_wc_product_meta_box(array(
-                'title' => esc_html__( 'Product Settings', 'wmodes-tdm' ),
+                'title' => esc_html__( 'Product Settings', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'id' => self::$metabox_id,
                 'sanitize_mode' => 'recursive',
                 'save_metabox' => true,

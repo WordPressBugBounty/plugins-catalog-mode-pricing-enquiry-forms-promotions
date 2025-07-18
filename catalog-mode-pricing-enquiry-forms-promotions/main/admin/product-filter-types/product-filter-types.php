@@ -1,5 +1,9 @@
 <?php
 
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 if ( !class_exists( 'Reon' ) ) {
     return;
 }
@@ -30,8 +34,8 @@ if ( !class_exists( 'WModes_Admin_Product_Filter_Types' ) ) {
                     'type' => 'select2',
                     'default' => '>=',
                     'options' => array(
-                        'yes' => esc_html__( 'Required', 'wmodes-tdm' ),
-                        'no' => esc_html__( 'Optional', 'wmodes-tdm' ),
+                        'yes' => esc_html__( 'Required', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                        'no' => esc_html__( 'Optional', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                     ),
                     'width' => '98%',
                     'box_width' => '19%',

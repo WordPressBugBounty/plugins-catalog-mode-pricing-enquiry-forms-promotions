@@ -1,5 +1,9 @@
 <?php
 
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 if ( !class_exists( 'Reon' ) ) {
     return;
 }
@@ -47,19 +51,19 @@ if ( !class_exists( 'WModes_Admin_Notices' ) ) {
 
         public function dismiss_notice() {
 
-            if ( !isset( $_POST[ 'dismiss_notice_id' ] ) ) {
+            if ( !isset( $_POST[ 'dismiss_notice_id' ] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing
 
                 wp_die();
             }
 
             $maybe_later = false;
 
-            if ( isset( $_POST[ 'mayme_later' ] ) ) {
+            if ( isset( $_POST[ 'mayme_later' ] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing
 
-                $maybe_later = ('yes' == sanitize_text_field( $_POST[ 'mayme_later' ] ));
+                $maybe_later = ('yes' == wp_unslash( sanitize_text_field( $_POST[ 'mayme_later' ] ) ) ); // phpcs:ignore WordPress.Security.NonceVerification.Missing,WordPress.Security.ValidatedSanitizedInput.MissingUnslash
             }
 
-            $notice_id = sanitize_text_field( $_POST[ 'dismiss_notice_id' ] );
+            $notice_id = wp_unslash( sanitize_text_field( $_POST[ 'dismiss_notice_id' ] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Missing,WordPress.Security.ValidatedSanitizedInput.MissingUnslash
 
 
             $review = $this->get_notice_option();

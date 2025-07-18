@@ -1,6 +1,5 @@
 "use strict";
-jQuery(document).ready(function($) {
-
+jQuery(document).ready(function ($) {
     //Select Default Tab
     var current = getSelectableLi();
     setSelecttion(current);
@@ -8,15 +7,15 @@ jQuery(document).ready(function($) {
     init_import_export();
     init_wc_page();
 
-    setTimeout(function() {
+    setTimeout(function () {
         init_rn_form_save_popup();
     }, 1000);
 
 //Mouse Click Tab Selection
-    $(".rn-option-page-tabs").find('a').each(function() {
+    $(".rn-option-page-tabs").find('a').each(function () {
         var anc_link = $(this);
         if (anc_link.attr('data-active-group')) {
-            anc_link.click(function() {
+            anc_link.click(function () {
 
                 $(".rn-option-page-tabs").attr('data-active', anc_link.parent().attr('data-key'));
                 var c = getSelectableLi();
@@ -28,7 +27,7 @@ jQuery(document).ready(function($) {
     });
 
 
-    $('.rn-option-page').on('rn_ui_change', function() {
+    $('.rn-option-page').on('rn_ui_change', function () {
         rn_adjust_aside();
     });
 
@@ -38,18 +37,18 @@ jQuery(document).ready(function($) {
         var option_tabs = $(".rn-option-page-tabs");
 
 
-        option_tabs.find('li').each(function() {
+        option_tabs.find('li').each(function () {
             $(this).removeClass('active');
             if ($(this).attr('data-key') == current) {
                 $(this).addClass('active');
 
                 var anc = $(this).find('a').attr('href');
-                $('.rn-option-page-group').each(function() {
+                $('.rn-option-page-group').each(function () {
                     if ('#' + $(this).attr('id') != anc) {
                         $(this).hide().removeClass('active-group');
                     } else {
                         $('.rn-reset-section, .rn-save-section').attr('data-active-group', $(anc).attr('id'));
-                        $(anc).fadeIn(200, function() {
+                        $(anc).fadeIn(200, function () {
                             $(anc).addClass('active-group');
                             rn_adjust_aside();
                         });
@@ -65,7 +64,7 @@ jQuery(document).ready(function($) {
                         var parent = parentli.find('.rn-option-page-tabs-sublist');
                         parent.removeAttr('style').css('display', 'block');
                         var h = parent.outerHeight() + 'px';
-                        parent.css('height', '0px').animate({height: h}, anidur, function() {
+                        parent.css('height', '0px').animate({height: h}, anidur, function () {
                             parent.removeAttr('style').css('display', 'block');
                         });
                     }
@@ -76,7 +75,7 @@ jQuery(document).ready(function($) {
                         var parent = $(this).find('.rn-option-page-tabs-sublist');
                         parent.removeAttr('style').css('display', 'block');
                         var h = parent.outerHeight() + 'px';
-                        parent.css('height', '0px').animate({height: h}, anidur, function() {
+                        parent.css('height', '0px').animate({height: h}, anidur, function () {
                             parent.removeAttr('style').css('display', 'block');
                         });
                     }
@@ -85,12 +84,12 @@ jQuery(document).ready(function($) {
         });
 
 
-        $('.rn-save-all, .rn-save-section').on('click', function() {
+        $('.rn-save-all, .rn-save-section').on('click', function () {
             rn_save_option($(this));
 
 
 
-            $('.rn-option-page').parents('.rn-woocommerce').each(function() {
+            $('.rn-option-page').parents('.rn-woocommerce').each(function () {
                 var wc_cont = $(this);
 
                 if (wc_cont.hasClass('rn-no-wc-save')) {
@@ -104,8 +103,14 @@ jQuery(document).ready(function($) {
             return false;
         });
 
-        $('.rn-reset-all, .rn-reset-section').on('click', function() {
-            rn_reset_option($(this));
+        $('.rn-reset-all, .rn-reset-section').on('click', function () {
+            
+            if( !re_reset_prompt( $( this ) ) ) {
+
+                return false;
+            }
+
+            rn_reset_option( $( this ) );
             return false;
         });
 
@@ -114,14 +119,14 @@ jQuery(document).ready(function($) {
 
 //Hide other subtabs
     function deSelectSiblings(currentli, anidur) {
-        currentli.siblings('li').each(function() {
+        currentli.siblings('li').each(function () {
             var sbl = $(this);
             if (sbl.hasClass('activeparent') == true) {
                 sbl.removeClass('activeparent');
                 var childul = sbl.find('.rn-option-page-tabs-sublist');
                 childul.removeAttr('style').css('display', 'block');
                 var h = childul.outerHeight() + 'px';
-                childul.css('height', h).animate({height: '0px'}, anidur, function() {
+                childul.css('height', h).animate({height: '0px'}, anidur, function () {
                     childul.removeAttr('style').css('display', 'none');
                 });
             }
@@ -132,7 +137,7 @@ jQuery(document).ready(function($) {
     function getSelectableLi() {
         var key = $(".rn-option-page-tabs").attr('data-active');
         var fkey = 0;
-        $(".rn-option-page-tabs").find('.rn-option-li').each(function() {
+        $(".rn-option-page-tabs").find('.rn-option-li').each(function () {
             var option_li = $(this);
 
             if (option_li.attr('data-key') == key) {
@@ -145,7 +150,7 @@ jQuery(document).ready(function($) {
             }
         });
         if (fkey == 0) {
-            $(".rn-option-page-tabs").find('.rn-option-subli').each(function() {
+            $(".rn-option-page-tabs").find('.rn-option-subli').each(function () {
                 var option_li = $(this);
                 if (option_li.attr('data-key') == key) {
                     fkey = option_li.attr('data-key');
@@ -199,8 +204,8 @@ jQuery(document).ready(function($) {
         data[nonce_id] = nonce_fields[nonce_id];
         data['_wp_http_referer'] = nonce_fields['_wp_http_referer'];
         data['reon_instance_id'] = $('.reon_instance_id').val();
-        rn_show_wait(true, function() {
-            option_page_ajax(data, function(response, status, xhr) {
+        rn_show_wait(true, function () {
+            option_page_ajax(data, function (response, status, xhr) {
                 if (response.status != 200) {
                     alert(response.status_message);
                 } else {
@@ -211,7 +216,7 @@ jQuery(document).ready(function($) {
                     }
                 }
                 rn_show_wait(false);
-            }, function() {
+            }, function () {
                 alert($('.rn-option-page').attr('data-ajax-save-error'));
                 rn_show_wait(false);
             });
@@ -241,8 +246,8 @@ jQuery(document).ready(function($) {
         data['_wp_http_referer'] = nonce_fields['_wp_http_referer'];
         data['reon_instance_id'] = $('.reon_instance_id').val();
 
-        rn_show_wait(true, function() {
-            option_page_ajax(data, function(response, status, xhr) {
+        rn_show_wait(true, function () {
+            option_page_ajax(data, function (response, status, xhr) {
                 if (response.status != 200) {
                     alert(response.status_message);
                 } else {
@@ -250,12 +255,32 @@ jQuery(document).ready(function($) {
                     window.location.reload(true);
                 }
                 rn_show_wait(false);
-            }, function() {
+            }, function () {
                 alert($('.rn-option-page').attr('data-ajax-reset-error'));
                 rn_show_wait(false);
             });
         });
 
+    }
+    
+    function re_reset_prompt( btn ) {
+
+        var msg = '';
+
+        if( btn.attr( 'data-active-group' ) ) {
+
+            msg = $( '.rn-option-page' ).attr( 'data-prompt-section-msg' );
+        } else {
+
+            msg = $( '.rn-option-page' ).attr( 'data-prompt-all-msg' );
+        }
+
+        if( !msg || '' == msg ) {
+
+            return true;
+        }
+
+        return window.confirm( msg );
     }
 
     function rn_show_wait(show, callback) {
@@ -264,37 +289,37 @@ jQuery(document).ready(function($) {
 
         if (show == true) {
             icn.css('display', 'inline-block');
-            overlay.fadeIn(300, function() {
+            overlay.fadeIn(300, function () {
                 if ($.isFunction(callback)) {
                     callback();
                 }
             });
         } else {
             icn.css('display', 'none');
-            overlay.fadeOut(300, function() {
+            overlay.fadeOut(300, function () {
                 overlay.hide();
             });
         }
     }
 
     function init_import_export() {
-        $('.rn-import-from-url').on('click', function() {
+        $('.rn-import-from-url').on('click', function () {
             $('.rn-data-import-panel,.rn-url-export-panel,.rn-data-export-panel').hide();
             $('.rn-data-importnow-panel').show();
-            $('.rn-url-import-panel').fadeIn(500, function() {
+            $('.rn-url-import-panel').fadeIn(500, function () {
                 $('.rn-import-btn').attr('data-import-type', 'url');
                 rn_adjust_aside();
             });
             return false;
         });
 
-        $('.rn-import-from-data').on('click', function() {
+        $('.rn-import-from-data').on('click', function () {
             $('.rn-url-import-panel').hide();
             $('.rn-url-export-panel').hide();
             $('.rn-data-export-panel').hide();
             $('.rn-data-importnow-panel').show();
 
-            $('.rn-data-import-panel').fadeIn(500, function() {
+            $('.rn-data-import-panel').fadeIn(500, function () {
                 $('.rn-import-btn').attr('data-import-type', 'data');
                 rn_adjust_aside();
             });
@@ -302,33 +327,33 @@ jQuery(document).ready(function($) {
         });
 
         var import_btn = $('.rn-import-btn');
-        import_btn.on('click', function() {
+        import_btn.on('click', function () {
             rn_import_now();
             return false;
         });
 
 
-        $('.rn-export-url').on('click', function() {
+        $('.rn-export-url').on('click', function () {
             $('.rn-data-export-panel,.rn-url-import-panel,.rn-data-import-panel,.rn-data-importnow-panel').hide();
-            $('.rn-url-export-panel').fadeIn(500, function() {
+            $('.rn-url-export-panel').fadeIn(500, function () {
                 rn_adjust_aside();
             });
             return false;
         });
 
-        $('.rn-export-data').on('click', function() {
+        $('.rn-export-data').on('click', function () {
             $('.rn-url-export-panel,.rn-url-import-panel,.rn-data-import-panel,.rn-data-importnow-panel').hide();
 
             var export_impt = $('#rn_export_data');
-            rn_show_wait(true, function() {
-                option_page_ajax_get(export_impt.attr('data-option-url'), function(response, status, xhr) {
+            rn_show_wait(true, function () {
+                option_page_ajax_get(export_impt.attr('data-option-url'), function (response, status, xhr) {
 
                     export_impt.val(JSON.stringify(response));
-                    $('.rn-data-export-panel').fadeIn(500, function() {
+                    $('.rn-data-export-panel').fadeIn(500, function () {
                         rn_adjust_aside();
                     });
                     rn_show_wait(false);
-                }, function() {
+                }, function () {
 
                     rn_show_wait(false);
                 });
@@ -337,18 +362,18 @@ jQuery(document).ready(function($) {
 
             return false;
         });
-        $('.rn-export-download-data').on('click', function() {
+        $('.rn-export-download-data').on('click', function () {
             $('.rn-url-export-panel,.rn-data-export-panel,.rn-url-import-panel,.rn-data-import-panel,.rn-data-importnow-panel').hide();
         });
     }
 
     function rn_import_now() {
         if ($('.rn-import-btn').attr('data-import-type') == 'url') {
-            rn_show_wait(true, function() {
-                option_page_ajax_get($('#rn_import_field_data').val(), function(response, status, xhr) {
+            rn_show_wait(true, function () {
+                option_page_ajax_get($('#rn_import_field_data').val(), function (response, status, xhr) {
                     rn_send_import(JSON.stringify(response));
                     rn_show_wait(false);
-                }, function() {
+                }, function () {
                     rn_show_wait(false);
                 });
             });
@@ -379,8 +404,8 @@ jQuery(document).ready(function($) {
         data['_wp_http_referer'] = nonce_fields['_wp_http_referer'];
         data['reon_instance_id'] = $('.reon_instance_id').val();
 
-        rn_show_wait(true, function() {
-            option_page_ajax(data, function(response, status, xhr) {
+        rn_show_wait(true, function () {
+            option_page_ajax(data, function (response, status, xhr) {
 
                 if (response.status != 200) {
                     alert(response.status_message);
@@ -389,7 +414,7 @@ jQuery(document).ready(function($) {
                     window.location.reload(true);
                 }
                 rn_show_wait(false);
-            }, function() {
+            }, function () {
                 alert($('.rn-option-page').attr('data-ajax-save-error'));
                 rn_show_wait(false);
             });
@@ -398,17 +423,17 @@ jQuery(document).ready(function($) {
     }
 
     function option_page_ajax(data, onsuccess, onerror) {
-        jQuery.post(ajaxurl, data, function(response, status, xhr) {
+        jQuery.post(rn_uiv.ajax_url, data, function (response, status, xhr) {
             onsuccess(response, status, xhr);
-        }).fail(function() {
+        }).fail(function () {
             onerror();
         });
     }
 
     function option_page_ajax_get(url, onsuccess, onerror) {
-        jQuery.get(url, [], function(response, status, xhr) {
+        jQuery.get(url, [], function (response, status, xhr) {
             onsuccess(response, status, xhr);
-        }).fail(function() {
+        }).fail(function () {
             onerror();
         });
     }
@@ -424,7 +449,7 @@ jQuery(document).ready(function($) {
 
 
 
-        $('.rn-option-page').parents('.woocommerce').each(function() {
+        $('.rn-option-page').parents('.woocommerce').each(function () {
             var wc_cont = $(this);
             if ((wc_cont.find('.rn-option-page-buttons').length > 0)) {
                 allow_wc_save = false;
@@ -442,14 +467,14 @@ jQuery(document).ready(function($) {
         });
 
 
-        $('form.rn-woocommerce').each(function() {
+        $('form.rn-woocommerce').each(function () {
             var rn_wc = $(this);
 
             if (allow_wc_save == false) {
                 rn_wc.addClass('rn-no-wc-save');
                 rn_wc.find('.woocommerce-save-button').parents('p').hide();
 
-                rn_wc.on('submit', function() {
+                rn_wc.on('submit', function () {
                     return false;
                 });
             } else {
@@ -466,12 +491,12 @@ jQuery(document).ready(function($) {
             return;
         }
         wc_form.attr('data-rn_ready', 'yes');
-        wc_form.on('submit', function() {
+        wc_form.on('submit', function () {
             if (wc_form.attr('data-rn_completed') && wc_form.attr('data-rn_completed') == 'yes') {
 
                 return true;
             } else {
-                rn_save_wc_option(function() {
+                rn_save_wc_option(function () {
                     wc_form.attr('data-rn_completed', 'yes');
                     wc_form.submit();
                 });
@@ -504,8 +529,8 @@ jQuery(document).ready(function($) {
         data['_wp_http_referer'] = nonce_fields['_wp_http_referer'];
         data['reon_instance_id'] = $('.reon_instance_id').val();
 
-        rn_show_wait(true, function() {
-            option_page_ajax(data, function(response, status, xhr) {
+        rn_show_wait(true, function () {
+            option_page_ajax(data, function (response, status, xhr) {
                 if (response.status != 200) {
                     alert(response.status_message);
 
@@ -513,7 +538,7 @@ jQuery(document).ready(function($) {
                     callback();
                 }
                 rn_show_wait(false);
-            }, function() {
+            }, function () {
                 alert($('.rn-option-page').attr('data-ajax-save-error'));
                 rn_show_wait(false);
             });
@@ -528,12 +553,12 @@ jQuery(document).ready(function($) {
 
     function init_rn_form_save_popup() {
 
-        $('.rn-option-page').each(function() {
+        $('.rn-option-page').each(function () {
             if (!$(this).hasClass('rn_is_wc')) {
                 var opt_page = $(this);
                 var opt_page_g = opt_page.find('.rn-option-page-group');
                 process_rn_form_save_popup(opt_page_g, false);
-                opt_page.on('rn_ui_content_added', function() {
+                opt_page.on('rn_ui_content_added', function () {
                     process_rn_form_save_popup(opt_page_g, true);
                 });
                 window.onbeforeunload = rn_form_save_popup;
@@ -543,7 +568,7 @@ jQuery(document).ready(function($) {
     }
 
     function process_rn_form_save_popup(contents, imadiate) {
-        contents.find('input,select,textarea').each(function() {
+        contents.find('input,select,textarea').each(function () {
             var inp = $(this);
 
             var can_imp = (inp.parents('.rn-repeater-templates').length > 0);
@@ -554,7 +579,7 @@ jQuery(document).ready(function($) {
                 if (imadiate == true) {
                     inp.parents('.rn-option-page-group').addClass('rn-option-page-group-dirty');
                 }
-                inp.on('change', function() {
+                inp.on('change', function () {
                     inp.parents('.rn-option-page-group').addClass('rn-option-page-group-dirty');
                 });
             }

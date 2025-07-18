@@ -1,5 +1,9 @@
 <?php
 
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 if ( !class_exists( 'WModes_Cart_Session' ) && !defined( 'WMODES_PREMIUM_ADDON' ) ) {
 
     class WModes_Cart_Session {

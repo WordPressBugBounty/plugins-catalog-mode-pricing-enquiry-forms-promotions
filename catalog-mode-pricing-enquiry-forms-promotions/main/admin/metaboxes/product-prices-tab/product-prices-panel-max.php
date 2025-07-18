@@ -1,5 +1,9 @@
 <?php
 
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 if ( !class_exists( 'Reon' ) ) {
     return;
 }
@@ -54,12 +58,12 @@ if ( !class_exists( 'WModes_Admin_Product_Prices_MetaBox_Panel_Max' ) && !define
                 'id' => 'limit_type',
                 'type' => 'select2',
                 'column_size' => 3,
-                'column_title' => esc_html__( 'Pricing Limit', 'wmodes-tdm' ),
-                'tooltip' => esc_html__( 'Controls pricing limits', 'wmodes-tdm' ),
+                'column_title' => esc_html__( 'Pricing Limit', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'tooltip' => esc_html__( 'Controls pricing limits', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'default' => 'no',
                 'disabled_list_filter' => 'wmodes-admin/get-disabled-list',
                 'options' => array(
-                    'no' => esc_html__( 'No limit', 'wmodes-tdm' ),
+                    'no' => esc_html__( 'No limit', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 ),
                 'width' => '100%',
             );

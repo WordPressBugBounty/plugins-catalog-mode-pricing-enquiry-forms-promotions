@@ -1,5 +1,9 @@
 <?php
 
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 if ( !class_exists( 'Reon' ) ) {
     return;
 }
@@ -43,12 +47,12 @@ if ( !class_exists( 'WModes_Admin_Product_Prices_Page' ) ) {
                                 'id' => 'limit_type',
                                 'type' => 'select2',
                                 'column_size' => 2,
-                                'column_title' => esc_html__( 'Pricing Limit (Per Product)', 'wmodes-tdm' ),
-                                'tooltip' => esc_html__( 'Controls pricing limits per product', 'wmodes-tdm' ),
+                                'column_title' => esc_html__( 'Pricing Limit (Per Product)', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                                'tooltip' => esc_html__( 'Controls pricing limits per product', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                                 'default' => 'no',
                                 'disabled_list_filter' => 'wmodes-admin/get-disabled-list',
                                 'options' => array(
-                                    'no' => esc_html__( 'No limit', 'wmodes-tdm' ),
+                                    'no' => esc_html__( 'No limit', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                                 ),
                                 'width' => '100%',
                             ),
@@ -56,8 +60,8 @@ if ( !class_exists( 'WModes_Admin_Product_Prices_Page' ) ) {
                                 'id' => 'mode',
                                 'type' => 'select2',
                                 'column_size' => 3,
-                                'column_title' => esc_html__( 'Apply Method (Per Product)', 'wmodes-tdm' ),
-                                'tooltip' => esc_html__( 'Controls product pricing apply method per product', 'wmodes-tdm' ),
+                                'column_title' => esc_html__( 'Apply Method (Per Product)', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                                'tooltip' => esc_html__( 'Controls product pricing apply method per product', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                                 'default' => 'all',
                                 'disabled_list_filter' => 'wmodes-admin/get-disabled-list',
                                 'options' => self::get_apply_method(),
@@ -88,7 +92,7 @@ if ( !class_exists( 'WModes_Admin_Product_Prices_Page' ) ) {
                 'delete_button' => true,
                 'clone_button' => true,
                 'max_sections' => $max_sections,
-                'max_sections_msg' => esc_html__( 'Please upgrade to premium version in order to add more options', 'wmodes-tdm' ),
+                'max_sections_msg' => esc_html__( 'Please upgrade to premium version in order to add more options', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'width' => '100%',
                 'field_css_class' => array( 'wmodes_options' ),
                 'css_class' => 'wmodes_extension_options',
@@ -102,7 +106,7 @@ if ( !class_exists( 'WModes_Admin_Product_Prices_Page' ) ) {
                 'template_adder' => array(
                     'position' => 'right',
                     'show_list' => false,
-                    'button_text' => esc_html__( 'New Product Pricing', 'wmodes-tdm' ),
+                    'button_text' => esc_html__( 'New Product Pricing', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 ),
             );
 
@@ -116,7 +120,7 @@ if ( !class_exists( 'WModes_Admin_Product_Prices_Page' ) ) {
                     'id' => 'product_pricing',
                     'head' => array(
                         'title' => '',
-                        'defaut_title' => esc_html__( 'Product Pricing', 'wmodes-tdm' ),
+                        'defaut_title' => esc_html__( 'Product Pricing', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                         'title_field' => 'admin_note',
                         'subtitle_field' => 'mode',
                     )
@@ -165,8 +169,8 @@ if ( !class_exists( 'WModes_Admin_Product_Prices_Page' ) ) {
                         'type' => 'select2',
                         'default' => 'yes',
                         'options' => array(
-                            'yes' => esc_html__( 'Enable', 'wmodes-tdm' ),
-                            'no' => esc_html__( 'Disable', 'wmodes-tdm' ),
+                            'yes' => esc_html__( 'Enable', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                            'no' => esc_html__( 'Disable', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                         ),
                         'width' => '95px',
                     ),
@@ -179,12 +183,12 @@ if ( !class_exists( 'WModes_Admin_Product_Prices_Page' ) ) {
         private static function get_apply_method() {
 
             $apply_methods = array(
-                'all' => esc_html__( 'Apply all valid product pricing', 'wmodes-tdm' ),
+                'all' => esc_html__( 'Apply all valid product pricing', 'catalog-mode-pricing-enquiry-forms-promotions' ),
             );
 
             $apply_methods = apply_filters( 'wmodes-admin/product-pricing/get-apply-methods', $apply_methods );
 
-            $apply_methods[ 'no' ] = esc_html__( 'Do not apply any product pricing', 'wmodes-tdm' );
+            $apply_methods[ 'no' ] = esc_html__( 'Do not apply any product pricing', 'catalog-mode-pricing-enquiry-forms-promotions' );
 
             return $apply_methods;
         }
@@ -192,7 +196,7 @@ if ( !class_exists( 'WModes_Admin_Product_Prices_Page' ) ) {
         private static function get_apply_modes() {
 
             $apply_modes = array(
-                'with_others' => esc_html__( 'Apply this and other product pricing', 'wmodes-tdm' ),
+                'with_others' => esc_html__( 'Apply this and other product pricing', 'catalog-mode-pricing-enquiry-forms-promotions' ),
             );
 
             $apply_modes = apply_filters( 'wmodes-admin/product-pricing/get-apply-modes', $apply_modes );

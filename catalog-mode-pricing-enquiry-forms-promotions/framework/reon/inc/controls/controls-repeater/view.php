@@ -1,4 +1,9 @@
-<div class="rn-field-wrapper<?php echo wp_kses_post(($field['center_head'] == true) ? ' rn-center' : ''); ?>" style="width:100%;">
+<?php
+
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
+?><div class="rn-field-wrapper<?php echo wp_kses_post(($field['center_head'] == true) ? ' rn-center' : ''); ?>" style="width:100%;">
     <div <?php echo wp_kses_post(ReonUtil::array_to_attributes(apply_filters('reon/control-attributes', $attributes, $field))); ?>>
         <div class="<?php echo esc_attr($con_classes); ?>"<?php echo wp_kses_post($connect_with); ?>>
             <?php
@@ -33,6 +38,9 @@
                     $adder_position = ' class="rn-repeater-adder-center"';
                 }
             }
+               
+           $disabled_templates = self::get_disabled_templates( self::template_args( $field ) );
+            
             ?>
             <div<?php echo wp_kses_post($adder_position); ?>>
                 <div class="rn-field-wrapper">
@@ -102,7 +110,7 @@
                                                 <?php
                                                 foreach (self::get_templates_by_group_id($templates, $static_template_id, $key) as $temp) {
                                                     ?>
-                                                    <option value="rp_<?php echo esc_attr($temp['id']); ?>"><?php echo esc_html($temp['list_label']); ?></option>
+                                                    <option value="rp_<?php echo esc_attr($temp['id']); ?>"<?php echo esc_html(ReonUtil::s_c_r_d_helper($temp['id'], $disabled_templates, 'disabled')); ?>><?php echo esc_html($temp['list_label']); ?></option>
                                                     <?php
                                                 }
                                                 ?>

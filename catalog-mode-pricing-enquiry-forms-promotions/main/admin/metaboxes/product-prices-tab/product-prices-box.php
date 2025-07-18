@@ -1,5 +1,9 @@
 <?php
 
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 if (!class_exists('Reon')) {
     return;
 }
@@ -34,7 +38,7 @@ if (!class_exists('WModes_Admin_Product_Prices_MetaBox_Box')) {
                 'delete_button' => true,
                 'clone_button' => true,
                 'max_sections' => $max_sections,
-                'max_sections_msg' => esc_html__('Please upgrade to premium version in order to add more prices', 'wmodes-tdm'),
+                'max_sections_msg' => esc_html__('Please upgrade to premium version in order to add more prices', 'catalog-mode-pricing-enquiry-forms-promotions'),
                 'field_css_class' => array('wmodes_mbx_options'),
                 'css_class'=>array('wmodes_mbx_options_rp'),
                 'width' => '100%',
@@ -50,7 +54,7 @@ if (!class_exists('WModes_Admin_Product_Prices_MetaBox_Box')) {
                 'template_adder' => array(
                     'position' => 'right',
                     'show_list' => false,
-                    'button_text' => esc_html__('New Product Pricing', 'wmodes-tdm'),
+                    'button_text' => esc_html__('New Product Pricing', 'catalog-mode-pricing-enquiry-forms-promotions'),
                 ),
                 'fold' => array(
                     'target' => 'enable_product_prices',
@@ -72,7 +76,7 @@ if (!class_exists('WModes_Admin_Product_Prices_MetaBox_Box')) {
                     'id' => 'product_pricing',
                     'head' => array(
                         'title' => '',                        
-                        'defaut_title' => esc_html__('Product Pricing', 'wmodes-tdm'),
+                        'defaut_title' => esc_html__('Product Pricing', 'catalog-mode-pricing-enquiry-forms-promotions'),
                         'title_field' => 'admin_note',
                         'subtitle_field' => 'mode',
                     )

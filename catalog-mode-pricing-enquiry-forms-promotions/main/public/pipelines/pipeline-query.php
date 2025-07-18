@@ -107,7 +107,7 @@ if ( !class_exists( 'WModes_Pipeline_Query' ) && !defined( 'WMODES_PREMIUM_ADDON
                 $outofstock_where = ' AND exclude_join.object_id IS NULL';
             }
 
-            // phpcs:disable WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+            // phpcs:disable WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching
             $on_sale_products = $wpdb->get_results(
                     "
 			SELECT posts.ID as id, posts.post_parent as parent_id
@@ -127,7 +127,7 @@ if ( !class_exists( 'WModes_Pipeline_Query' ) && !defined( 'WMODES_PREMIUM_ADDON
                         LIMIT {$limit}
 			"
             );
-            // phpcs:enable WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+            // phpcs:enable WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching
 
 
             return wp_parse_id_list( array_merge( wp_list_pluck( $on_sale_products, 'id' ), array_diff( wp_list_pluck( $on_sale_products, 'parent_id' ), array( 0 ) ) ) );

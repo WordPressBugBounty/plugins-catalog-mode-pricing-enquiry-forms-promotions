@@ -1,5 +1,9 @@
 <?php
 
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 if ( !class_exists( 'Reon' ) ) {
     return;
 }
@@ -34,8 +38,8 @@ if ( !class_exists( 'WModes_Admin_Product_Prices_MetaBox_Panel_Options' ) ) {
                         'id' => 'mode',
                         'type' => 'select2',
                         'column_size' => 1,
-                        'column_title' => esc_html__( 'Mode', 'wmodes-tdm' ),
-                        'tooltip' => esc_html__( 'Controls product prices mode', 'wmodes-tdm' ),
+                        'column_title' => esc_html__( 'Mode', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                        'tooltip' => esc_html__( 'Controls product prices mode', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                         'default' => 'sale',
                         'disabled_list_filter' => 'wmodes-admin/get-disabled-list',
                         'options' => self::get_mode_types( $args ),
@@ -45,11 +49,11 @@ if ( !class_exists( 'WModes_Admin_Product_Prices_MetaBox_Panel_Options' ) ) {
                     array(
                         'id' => 'admin_note',
                         'type' => 'textbox',
-                        'tooltip' => esc_html__( 'Adds a private note for reference purposes', 'wmodes-tdm' ),
+                        'tooltip' => esc_html__( 'Adds a private note for reference purposes', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                         'column_size' => 1,
-                        'column_title' => esc_html__( 'Admin Note', 'wmodes-tdm' ),
+                        'column_title' => esc_html__( 'Admin Note', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                         'default' => '',
-                        'placeholder' => esc_html__( 'Type here...', 'wmodes-tdm' ),
+                        'placeholder' => esc_html__( 'Type here...', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                         'width' => '100%',
                     ),
                 ),

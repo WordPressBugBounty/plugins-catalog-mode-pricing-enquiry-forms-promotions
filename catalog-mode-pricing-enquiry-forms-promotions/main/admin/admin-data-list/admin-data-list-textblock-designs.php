@@ -1,5 +1,9 @@
 <?php
 
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 if ( !class_exists( 'Reon' ) ) {
     return;
 }
@@ -49,13 +53,13 @@ if ( !class_exists( 'WModes_Admin_Data_List_Text_Block_Designs' ) ) {
                     return $option[ 'admin_note' ];
                 }
             }
-            return esc_html__( 'Text Block', 'wmodes-tdm' );
+            return esc_html__( 'Text Block', 'catalog-mode-pricing-enquiry-forms-promotions' );
         }
 
         private static function get_default_options() {
             return array(
                 array(
-                    'admin_note' => esc_html__( 'Text Block', 'wmodes-tdm' ),
+                    'admin_note' => esc_html__( 'Text Block', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                     'ui_id' => '2234343',
                 ),
             );

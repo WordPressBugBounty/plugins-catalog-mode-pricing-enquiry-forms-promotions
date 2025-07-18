@@ -1,5 +1,9 @@
 <?php
 
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 if ( !class_exists( 'Reon' ) ) {
     return;
 }
@@ -23,7 +27,7 @@ if ( !class_exists( 'WModes_Admin_Catalog_Mode_Types_Checkout' ) && !defined( 'W
             }
 
             $in_options[ 'checkout' ] = array(
-                'title' => esc_html__( 'Checkout Page Settings', 'wmodes-tdm' ),
+                'title' => esc_html__( 'Checkout Page Settings', 'catalog-mode-pricing-enquiry-forms-promotions' ),
             );
 
             return $in_options;
@@ -54,12 +58,12 @@ if ( !class_exists( 'WModes_Admin_Catalog_Mode_Types_Checkout' ) && !defined( 'W
                 'id' => 'restrict_checkout',
                 'type' => 'select2',
                 'column_size' => 1,
-                'column_title' => esc_html__( 'Restrict Access', 'wmodes-tdm' ),
-                'tooltip' => esc_html__( 'Restricts access to "Checkout" page and disable all checkout functions', 'wmodes-tdm' ),
+                'column_title' => esc_html__( 'Restrict Access', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'tooltip' => esc_html__( 'Restricts access to "Checkout" page and disable all checkout functions', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'default' => 'no',
                 'options' => array(
-                    'yes' => esc_html__( 'Yes', 'wmodes-tdm' ),
-                    'no' => esc_html__( 'No', 'wmodes-tdm' ),
+                    'yes' => esc_html__( 'Yes', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                    'no' => esc_html__( 'No', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 ),
                 'width' => '100%',
                 'fold_id' => 'restrict_checkout'

@@ -165,7 +165,9 @@ if ( !class_exists( 'WModes_Pipeline_Cart_Catalog' ) && !defined( 'WMODES_PREMIU
 
         private function process_http_redirect( $http_options ) {
 
-            wp_redirect( $http_options[ 'url' ], 307 );
+            wp_safe_redirect( $http_options[ 'url' ], 307 );
+
+            exit;
         }
 
         public function get_modes( $mode_name, $default ) {

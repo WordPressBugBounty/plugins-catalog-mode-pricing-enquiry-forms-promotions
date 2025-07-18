@@ -1,19 +1,19 @@
-=== WooCommerce Catalog Mode - Product Pricing, Enquiry Forms & Promotions ===
+=== wModes - Catalog Mode, Product Pricing, Enquiry Forms & Promotions | for WooCommerce ===
 Contributors: zendcrew, sundayfanz
 Donate link: 
-Tags: catalog, catalog mode, catalogue mode, enquiry form, remove add to cart, remove price, product pricing, promotions, countdown, countdown timer, badges, product badges, b2b, ecommerce, woocommerce
+Tags: catalog, catalog mode, catalogue mode, enquiry form, remove add to cart
 Requires at least: 5.8
 Tested up to: 6.8
-Stable tag: 1.1.8
+Stable tag: 1.2.1
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-WooCommerce Catalog Mode, WooCommerce Product Pricing, WooCommerce Enquiry Forms, WooCommerce Promotions
+Advanced Catalog Mode, Product Pricing, Enquiry Forms & Promotions for WooCommerce
 
 == Description ==
 
-Use the [WooCommerce Catalog Mode, Product Pricing, Enquiry Forms & Promotions](https://codecanyon.net/item/woocommerce-catalog-mode-pricing-enquiry-forms-promotions/43498179?ref=zendcrew) plugin to easily set up **catalog modes**,  **prices and marketing** strategies on your **WooCommerce** store.
+Use the [wModes - Catalog Mode, Product Pricing, Enquiry Forms & Promotions](https://codecanyon.net/item/woocommerce-catalog-mode-pricing-enquiry-forms-promotions/43498179?ref=zendcrew) plugin to easily set up **catalog modes**,  **prices and marketing** strategies on your **WooCommerce** store.
 
 The plugin provides options for removing shop functions (like **product prices**, the **add-to-cart button**, and the **cart** and **checkout** pages).
 
@@ -39,24 +39,34 @@ The plugin allows you to easily set up all module functions based on product rul
 
 ### YOU MAY ALSO NEED THESE OTHER PLUGINS
 
-&#9989;&nbsp;[WooCommerce Partial COD - Payment Gateway Restrictions & Fees](https://wordpress.org/plugins/partial-cod-payment-gateway-restrictions-fees): A powerful, flexible and easy-to-use WooCommerce extension that can be used to manage payment availability and other gateway-related cart settings based on product rules and conditions.
+&#9989;&nbsp;[PCOD - Partial COD, Payment Gateway Restrictions & Fees | for WooCommerce](https://wordpress.org/plugins/partial-cod-payment-gateway-restrictions-fees): A powerful, flexible and easy-to-use WooCommerce extension that can be used to manage payment availability and other gateway-related cart settings based on product rules and conditions.
 
 &#9989;&nbsp;[Table Rate Shipping Method for WooCommerce by Shipped - WooCommerce Table Rate Shipping](https://wordpress.org/plugins/table-rate-shipping-rates): A powerful, flexible and easy-to-use shipping plugin for **WooCommerce**, it can be used to create multiple shipping rates based on product rules and conditions.
 
 &#9989;&nbsp;[Dynamic Pricing & Discounts for WooCommerce](https://codecanyon.net/item/woopricely-dynamic-pricing-fees-discounts/23844181?ref=zendcrew): A multi-purpose pricing and discounts toolkit for **WooCommerce**. The dynamic pricing and discounts plugin allows you to automate product pricing, simple discount pricing, bulk discount pricing, tiered discount pricing, buy x get x discount pricing, buy x get y discount pricing, group discount pricing, cart discounts and cart fees by defining rules and conditions. These features are grouped into four easy-to-use modules, the modules include Product Pricing, Checkout Pricing, Checkout Discounts, and Checkout Fees.
 
-&#9989;&nbsp;[WooCommerce Smart Pack - Gift Card, Wallet, Refund & Reward](https://codecanyon.net/item/woocommerce-smart-pack-gift-card-wallet-refund-reward/20265145?ref=zendcrew): A WordPress plugin that allows merchants to implement a wallet system, reward or refund customers and sell an unlimited number of gift card products on their website. These features are grouped into four different extensions, the extensions include **WooCommerce Wallets**, **WooCommerce Refunds**, **WooCommerce Rewards** and **WooCommerce Gift Cards**. Each of these extensions can be enabled or disabled depending on what features are needed on a website.
+&#9989;&nbsp;[Smart Pack - Gift Card, Wallet, Refund & Reward | for WooCommerce](https://codecanyon.net/item/woocommerce-smart-pack-gift-card-wallet-refund-reward/20265145?ref=zendcrew): A WordPress plugin that allows merchants to implement a wallet system, reward or refund customers and sell an unlimited number of gift card products on their website. These features are grouped into four different extensions, the extensions include **WooCommerce Wallets**, **WooCommerce Refunds**, **WooCommerce Rewards** and **WooCommerce Gift Cards**. Each of these extensions can be enabled or disabled depending on what features are needed on a website.
 
 
 == Screenshots ==
-1. WooCommerce Catalog Mode - Catalog Mode Settings 1
-2. WooCommerce Catalog Mode - Catalog Mode Settings 2
-3. WooCommerce Catalog Mode - Product Pricing 1
-4. WooCommerce Catalog Mode - Product Pricing 2
-5. WooCommerce Catalog Mode - Product Settings 1
-6. WooCommerce Catalog Mode - Product Settings 2
+1. wModes - Catalog Mode, Product Pricing, Enquiry Forms & Promotions | for WooCommerce - Catalog Mode Settings 1
+2. wModes - Catalog Mode, Product Pricing, Enquiry Forms & Promotions | for WooCommerce - Catalog Mode Settings 2
+3. wModes - Catalog Mode, Product Pricing, Enquiry Forms & Promotions | for WooCommerce - Product Pricing 1
+4. wModes - Catalog Mode, Product Pricing, Enquiry Forms & Promotions | for WooCommerce - Product Pricing 2
+5. wModes - Catalog Mode, Product Pricing, Enquiry Forms & Promotions | for WooCommerce - Product Settings 1
+6. wModes - Catalog Mode, Product Pricing, Enquiry Forms & Promotions | for WooCommerce - Product Settings 2
 
 == Changelog ==
+
+= 1.2.1 - 18/07/2025 =
+[Update] - Updated Framework
+[Check] - Full security check using Plugin Check (PCP)
+
+= 1.2 - 17/07/2025 =
+[Update] - Updated Framework
+[Tweaks] - Changed Plugin name and banner
+[Check] - WordPress 6.8 compatibility check
+[Check] - Full security check using Plugin Check (PCP)
 
 = 1.1.8 - 01/07/2025 =
 [Update] - Updated documentation links

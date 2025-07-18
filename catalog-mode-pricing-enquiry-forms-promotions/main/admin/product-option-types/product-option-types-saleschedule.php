@@ -1,5 +1,9 @@
 <?php
 
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 if ( !class_exists( 'Reon' ) ) {
     return;
 }
@@ -20,7 +24,7 @@ if ( !class_exists( 'WModes_Admin_Product_Option_Type_SaleSchedule' ) && !define
         public static function get_types( $in_options, $args = array() ) {
 
             $in_options[ 'sale_schedule' ] = array(
-                'title' => esc_html__( 'Sale Schedule', 'wmodes-tdm' ),
+                'title' => esc_html__( 'Sale Schedule', 'catalog-mode-pricing-enquiry-forms-promotions' ),
             );
 
             return $in_options;
@@ -54,8 +58,8 @@ if ( !class_exists( 'WModes_Admin_Product_Option_Type_SaleSchedule' ) && !define
                 'id' => 'mode',
                 'type' => 'select2',
                 'column_size' => 3,
-                'column_title' => esc_html__( 'Schedule Mode', 'wmodes-tdm' ),
-                'tooltip' => esc_html__( 'Controls sale schedule mode', 'wmodes-tdm' ),
+                'column_title' => esc_html__( 'Schedule Mode', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'tooltip' => esc_html__( 'Controls sale schedule mode', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'disabled_list_filter' => 'wmodes-admin/get-disabled-grouped-list',
                 'options' => self::get_mode(),
                 'width' => '100%',
@@ -71,15 +75,15 @@ if ( !class_exists( 'WModes_Admin_Product_Option_Type_SaleSchedule' ) && !define
                 'id' => 'date',
                 'type' => 'date',
                 'column_size' => 4,
-                'column_title' => esc_html__( 'Specific Date', 'wmodes-tdm' ),
-                'tooltip' => esc_html__( 'Enter a specific date to schedule sale', 'wmodes-tdm' ),
+                'column_title' => esc_html__( 'Specific Date', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'tooltip' => esc_html__( 'Enter a specific date to schedule sale', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'number_of_months' => 1,
                 'show_button_panel' => false,
                 'change_month' => true,
                 'change_year' => true,
                 'first_day' => 0,
                 'default' => '',
-                'placeholder' => esc_html__( 'yy-mm-dd', 'wmodes-tdm' ),
+                'placeholder' => esc_html__( 'yy-mm-dd', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'date_format' => 'yy-mm-dd',
                 'fold' => array(
                     'target' => 'sale_schedule_mode',
@@ -95,15 +99,15 @@ if ( !class_exists( 'WModes_Admin_Product_Option_Type_SaleSchedule' ) && !define
                 'id' => 'from_date',
                 'type' => 'date',
                 'column_size' => 4,
-                'column_title' => esc_html__( 'From Date', 'wmodes-tdm' ),
-                'tooltip' => esc_html__( 'User role to apply', 'wmodes-tdm' ),
+                'column_title' => esc_html__( 'From Date', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'tooltip' => esc_html__( 'User role to apply', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'number_of_months' => 1,
                 'show_button_panel' => false,
                 'change_month' => true,
                 'change_year' => true,
                 'first_day' => 0,
                 'default' => '',
-                'placeholder' => esc_html__( 'yy-mm-dd', 'wmodes-tdm' ),
+                'placeholder' => esc_html__( 'yy-mm-dd', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'date_format' => 'yy-mm-dd',
                 'fold' => array(
                     'target' => 'sale_schedule_mode',
@@ -119,15 +123,15 @@ if ( !class_exists( 'WModes_Admin_Product_Option_Type_SaleSchedule' ) && !define
                 'id' => 'to_date',
                 'type' => 'date',
                 'column_size' => 4,
-                'column_title' => esc_html__( 'To Date', 'wmodes-tdm' ),
-                'tooltip' => esc_html__( 'User role to apply', 'wmodes-tdm' ),
+                'column_title' => esc_html__( 'To Date', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                'tooltip' => esc_html__( 'User role to apply', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'number_of_months' => 1,
                 'show_button_panel' => false,
                 'change_month' => true,
                 'change_year' => true,
                 'first_day' => 0,
                 'default' => '',
-                'placeholder' => esc_html__( 'yy-mm-dd', 'wmodes-tdm' ),
+                'placeholder' => esc_html__( 'yy-mm-dd', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                 'date_format' => 'yy-mm-dd',
                 'fold' => array(
                     'target' => 'sale_schedule_mode',
@@ -146,12 +150,12 @@ if ( !class_exists( 'WModes_Admin_Product_Option_Type_SaleSchedule' ) && !define
 
             $options = array(
                 'date' => array(
-                    'label' => esc_html__( 'Date', 'wmodes-tdm' ),
+                    'label' => esc_html__( 'Date', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                     'options' => array(
-                        'date' => esc_html__( 'Specific Date', 'wmodes-tdm' ),
-                        'from_date' => esc_html__( 'From Date', 'wmodes-tdm' ),
-                        'to_date' => esc_html__( 'To Date', 'wmodes-tdm' ),
-                        'range_date' => esc_html__( 'Between Date', 'wmodes-tdm' ),
+                        'date' => esc_html__( 'Specific Date', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                        'from_date' => esc_html__( 'From Date', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                        'to_date' => esc_html__( 'To Date', 'catalog-mode-pricing-enquiry-forms-promotions' ),
+                        'range_date' => esc_html__( 'Between Date', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                     )
                 ),
             );
