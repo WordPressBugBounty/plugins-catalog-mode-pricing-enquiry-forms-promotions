@@ -7,6 +7,8 @@ if ( !defined( 'ABSPATH' ) ) {
 
 if ( !class_exists( 'WModes' ) ) {
 
+    require_once dirname( __FILE__ ) . '/wmodes-locale.php';   
+    require_once dirname( __FILE__ ) . '/wmodes-currency.php';
     require_once dirname( __FILE__ ) . '/utils/wmodes-utils.php';
     require_once dirname( __FILE__ ) . '/wmodes-product.php';
     require_once dirname( __FILE__ ) . '/wmodes-cart.php';

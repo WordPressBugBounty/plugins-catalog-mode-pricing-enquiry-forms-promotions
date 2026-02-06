@@ -1,12 +1,13 @@
 <?php
 
 if ( !defined( 'ABSPATH' ) ) {
+
     exit;
 }
 
-if ( !class_exists( 'WModes_WOOCS' ) && class_exists( 'WOOCS' ) && !defined( 'WMODES_PREMIUM_ADDON' ) ) {
+if ( !class_exists( 'WModes_CURCY' ) && function_exists( 'wmc_get_price' ) && !defined( 'WMODES_PREMIUM_ADDON' ) ) {
 
-    class WModes_WOOCS {
+    class WModes_CURCY {
 
         private static $instance;
 
@@ -22,12 +23,22 @@ if ( !class_exists( 'WModes_WOOCS' ) && class_exists( 'WOOCS' ) && !defined( 'WM
 
         public function convert_amount( $amount ) {
 
-            return apply_filters( 'woocs_convert_price', $amount, false );
+            if ( function_exists( 'wmc_get_price' ) ) {
+
+                return wmc_get_price( $amount );
+            }
+
+            return $amount;
         }
 
         public function revert_amount( $amount ) {
+           
+            if ( function_exists( 'wmc_revert_price' ) ) {
 
-            return apply_filters( 'woocs_back_convert_price', $amount, false );
+                return wmc_revert_price( $amount );
+            }
+
+            return $amount;
         }
 
         public function can_convert_amount( $amount_id ) {

@@ -6,7 +6,9 @@ if ( !defined( 'ABSPATH' ) ) {
 
 if ( !class_exists( 'WModes_Util' ) && !defined( 'WMODES_PREMIUM_ADDON' ) ) {
 
+    require_once dirname( __FILE__ ) . '/wmodes-taxonomy-util.php';
     require_once dirname( __FILE__ ) . '/wmodes-validation-util.php';
+    require_once dirname( __FILE__ ) . '/wmodes-terms-validation-util.php';
     require_once dirname( __FILE__ ) . '/wmodes-customer-util.php';
 
     class WModes_Util {

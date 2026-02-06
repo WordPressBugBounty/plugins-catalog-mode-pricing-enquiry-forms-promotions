@@ -5,7 +5,7 @@ if ( !defined( 'ABSPATH' ) ) {
 }
 
 
-if ( !class_exists( 'WModes_Validation_Util' ) && !defined( 'WMODES_PREMIUM_ADDON' ) ) {
+if ( !class_exists( 'WModes_Validation_Util' ) ) {
 
     class WModes_Validation_Util {
         

@@ -7,6 +7,8 @@ if ( !defined( 'ABSPATH' ) ) {
 if ( !class_exists( 'WModes_Pipeline_Variation_Prices' ) && !defined( 'WMODES_PREMIUM_ADDON' ) ) {
 
     class WModes_Pipeline_Variation_Prices {
+        
+        private $currency;
 
         public function __construct() {
 
@@ -24,7 +26,7 @@ if ( !class_exists( 'WModes_Pipeline_Variation_Prices' ) && !defined( 'WMODES_PR
 
             if ( isset( $pipeline_data[ 'sale_price' ] ) ) {
 
-                return apply_filters( 'wmodes/get-sale-price', $pipeline_data[ 'sale_price' ], $product, $variation );
+                return apply_filters( 'wmodes/get-sale-price', $this->convert_amount( $pipeline_data[ 'sale_price' ], 'pipeline-sale-price' ), $product, $variation );
             }
 
             return $price;
@@ -38,7 +40,7 @@ if ( !class_exists( 'WModes_Pipeline_Variation_Prices' ) && !defined( 'WMODES_PR
 
             if ( isset( $pipeline_data[ 'price' ] ) ) {
 
-                return apply_filters( 'wmodes/get-price', $pipeline_data[ 'price' ], $product, $variation );
+                return apply_filters( 'wmodes/get-price', $this->convert_amount( $pipeline_data[ 'price' ], 'pipeline-price' ), $product, $variation );
             }
 
             return $price;
@@ -53,6 +55,16 @@ if ( !class_exists( 'WModes_Pipeline_Variation_Prices' ) && !defined( 'WMODES_PR
             $price_hash[ 'wmodes' ] = md5( wp_json_encode( $wmodes_hash ) );
 
             return $price_hash;
+        }
+        
+        private function convert_amount( $amount, $amount_id ) {
+
+            if ( is_null( $this->currency ) ) {
+
+                $this->currency = WModes_Currency::get_instance();
+            }
+
+            return $this->currency->convert_amount( $amount, $amount_id );
         }
 
     }

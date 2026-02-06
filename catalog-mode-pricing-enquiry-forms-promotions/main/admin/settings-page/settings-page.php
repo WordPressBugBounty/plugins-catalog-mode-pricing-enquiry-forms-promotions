@@ -39,6 +39,7 @@ if ( !class_exists( 'WModes_Admin_Page' ) ) {
 
         private static $option_name = "wmodes_settings";
         private static $menu_slug = "wmodes-settings";
+        private static $locale;
 
         public static function init() {
 
@@ -76,15 +77,6 @@ if ( !class_exists( 'WModes_Admin_Page' ) ) {
 
         public static function init_page() {
 
-            /* translators: 1:  plugin version */
-            $version_text = sprintf( esc_html__( 'Lite v%s', 'catalog-mode-pricing-enquiry-forms-promotions' ), WMODES_VERSION );
-
-            if ( defined( 'WMODES_PREMIUM_ADDON' ) ) {
-
-                /* translators: 1:  plugin version */
-                $version_text = sprintf( esc_html__( 'Premium v%s', 'catalog-mode-pricing-enquiry-forms-promotions' ), WMODES_VERSION );
-            }
-
             $args = array(
                 'option_name' => self::$option_name,
                 'database' => 'option',
@@ -96,12 +88,13 @@ if ( !class_exists( 'WModes_Admin_Page' ) ) {
                 'page_id' => 'wmodes_page',
                 'enable_section_title' => true,
                 'aside_width' => '210px',
+                'user_capability' => 'manage_woocommerce',
                 'display' => array(
                     'enabled' => true,
                     'image' => WMODES_ASSETS_URL . 'images/aside_logo.png',
                     'title' => esc_html__( 'Catalog Mode', 'catalog-mode-pricing-enquiry-forms-promotions' ),
                     'sub_title' => esc_html__( 'Pricing, Enquiry Forms & Promotions', 'catalog-mode-pricing-enquiry-forms-promotions' ),
-                    'version' => $version_text,
+                    'version' => self::get_display_version(),
                     'styles' => array(
                         'bg_image' => WMODES_ASSETS_URL . 'images/aside_bg.png',
                         'bg_color' => '#0073aa',
@@ -123,7 +116,6 @@ if ( !class_exists( 'WModes_Admin_Page' ) ) {
                     'icon' => 'dashicons-admin-generic',
                     'priority' => 3,
                     'parent' => 'woocommerce',
-                    'capability' => 'manage_woocommerce',
                 ),
                 'import_export' => array(
                     'enable' => true,
@@ -252,7 +244,17 @@ if ( !class_exists( 'WModes_Admin_Page' ) ) {
                 $options[ 'custom_css_vertion' ] = 0;
             }
 
-            return $options;
+            return self::process_locale_options( $options );
+        }
+        
+        private static function process_locale_options( $options ) {
+
+            if ( is_null( self::$locale ) ) {
+
+                self::$locale = WModes_Admin_Locale::get_instance();
+            }
+
+            return self::$locale->process_options( $options );
         }
 
         public static function sanitize_wmodes_kses_post_box( $option ) {
@@ -358,6 +360,25 @@ if ( !class_exists( 'WModes_Admin_Page' ) ) {
             return self::get_disabled_list( $list, $options );
         }
 
+        private static function get_display_version() {
+
+            if ( defined( 'WMODES_PREMIUM_VERSION' ) ) {
+
+                /* translators: 1:  plugin version */
+                return sprintf( esc_html__( 'Premium v%s', 'catalog-mode-pricing-enquiry-forms-promotions' ), WMODES_PREMIUM_VERSION );
+            }
+
+
+            if ( defined( 'WMODES_PREMIUM_ADDON' ) ) {
+
+                /* translators: 1:  plugin version */
+                return sprintf( esc_html__( 'Premium v%s', 'catalog-mode-pricing-enquiry-forms-promotions' ), WMODES_VERSION );
+            }
+
+            /* translators: 1:  plugin version */
+            return sprintf( esc_html__( 'Lite v%s', 'catalog-mode-pricing-enquiry-forms-promotions' ), WMODES_VERSION );
+        }
+        
         private static function get_page_links() {
 
             $page_links = array(

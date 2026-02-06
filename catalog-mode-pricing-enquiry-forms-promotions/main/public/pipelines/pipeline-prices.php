@@ -11,6 +11,7 @@ if ( !class_exists( 'WModes_Pipeline_Prices' ) && !defined( 'WMODES_PREMIUM_ADDO
         private static $instance;
         private $prices;
         private $hash_data;
+        private $currency;
 
         public function __construct() {
 
@@ -41,7 +42,7 @@ if ( !class_exists( 'WModes_Pipeline_Prices' ) && !defined( 'WMODES_PREMIUM_ADDO
 
             if ( isset( $pipeline_data[ 'sale_price' ] ) ) {
 
-                return apply_filters( 'wmodes/get-sale-price', $pipeline_data[ 'sale_price' ], $product, null );
+                return apply_filters( 'wmodes/get-sale-price', $this->convert_amount( $pipeline_data[ 'sale_price' ], 'pipeline-sale-price' ), $product, null );
             }
 
             return $price;
@@ -53,7 +54,7 @@ if ( !class_exists( 'WModes_Pipeline_Prices' ) && !defined( 'WMODES_PREMIUM_ADDO
 
             if ( isset( $pipeline_data[ 'price' ] ) ) {
 
-                return apply_filters( 'wmodes/get-price', $pipeline_data[ 'price' ], $product, null );
+                return apply_filters( 'wmodes/get-price', $this->convert_amount( $pipeline_data[ 'price' ], 'pipeline-price' ), $product, null );
             }
 
             return $price;
@@ -65,7 +66,7 @@ if ( !class_exists( 'WModes_Pipeline_Prices' ) && !defined( 'WMODES_PREMIUM_ADDO
 
             if ( isset( $pipeline_data[ 'sale_price' ] ) ) {
 
-                return apply_filters( 'wmodes/get-sale-price', $pipeline_data[ 'sale_price' ], $product, $variation );
+                return apply_filters( 'wmodes/get-sale-price', $this->convert_amount( $pipeline_data[ 'sale_price' ], 'pipeline-sale-price' ), $product, $variation );
             }
 
             return $price;
@@ -77,7 +78,7 @@ if ( !class_exists( 'WModes_Pipeline_Prices' ) && !defined( 'WMODES_PREMIUM_ADDO
 
             if ( isset( $pipeline_data[ 'price' ] ) ) {
 
-                return apply_filters( 'wmodes/get-price', $pipeline_data[ 'price' ], $product, $variation );
+                return apply_filters( 'wmodes/get-price', $this->convert_amount( $pipeline_data[ 'price' ], 'pipeline-price' ), $product, $variation );
             }
 
             return $price;
@@ -194,6 +195,16 @@ if ( !class_exists( 'WModes_Pipeline_Prices' ) && !defined( 'WMODES_PREMIUM_ADDO
         private function get_prices_key_by_id( $product_id, $variation_id = 0 ) {
 
             return $product_id . '_' . $variation_id;
+        }
+        
+        private function convert_amount( $amount, $amount_id ) {
+
+            if ( is_null( $this->currency ) ) {
+
+                $this->currency = WModes_Currency::get_instance();
+            }
+
+            return $this->currency->convert_amount( $amount, $amount_id );
         }
 
     }
