@@ -11,10 +11,22 @@ if ( !class_exists( 'Reon' ) ) {
 if ( !class_exists( 'WModes_Admin_Condition_Types' ) ) {
 
     require_once (dirname( __FILE__ ) . '/condition-types-customer.php');
-    require_once (dirname( __FILE__ ) . '/condition-types-datetime.php');
+    require_once (dirname( __FILE__ ) . '/condition-types-calendar.php');
     require_once (dirname( __FILE__ ) . '/condition-types-cart.php');
                        
     class WModes_Admin_Condition_Types {
+        
+        private static $instance;
+
+        public static function get_instance(): self {
+
+            if ( !self::$instance ) {
+
+                self::$instance = new self();
+            }
+
+            return self::$instance;
+        }
 
         public static function get_groups( $args ) {
 

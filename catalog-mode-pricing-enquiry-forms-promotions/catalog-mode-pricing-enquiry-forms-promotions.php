@@ -4,7 +4,7 @@
  * Plugin Name: wModes - Catalog Mode, Product Pricing, Enquiry Forms & Promotions | for WooCommerce
  * Plugin URI: https://codecanyon.net/item/woocommerce-catalog-mode-pricing-enquiry-forms-promotions/43498179?ref=zendcrew
  * Description: An All-purpose WooCommerce catalog mode, product pricing and promotion toolkit.
- * Version: 1.3.1
+ * Version: 1.3.2
  * Author: zendcrew
  * Author URI: https://codecanyon.net/user/zendcrew?ref=zendcrew
  * Text Domain: catalog-mode-pricing-enquiry-forms-promotions
@@ -16,7 +16,7 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  * 
  * Tested up to: 6.9
- * WC tested up to: 10.3
+ * WC tested up to: 10.5
  * 
  * Requires Plugins: woocommerce
  */
@@ -32,7 +32,7 @@ if ( is_admin() ) {
 
 if ( !defined( 'WMODES_VERSION' ) ) {
 
-    define( 'WMODES_VERSION', '1.3.1' );
+    define( 'WMODES_VERSION', '1.3' );
 }
 
 if ( !defined( 'WMODES_MAIN_FILE' ) ) {
@@ -51,6 +51,8 @@ if ( !class_exists( 'WModes_Init' ) ) {
             add_action( 'before_woocommerce_init', array( $this, 'before_woocommerce_init' ) );
 
             add_action( 'init', array( $this, 'load_textdomain' ) );
+            
+            add_filter( 'wp_plugin_dependencies_slug', array( $this, 'get_dependency_slug' ) );
         }
         
         public function load_textdomain() {
@@ -62,7 +64,7 @@ if ( !class_exists( 'WModes_Init' ) ) {
 
             if ( function_exists( 'WC' ) ) { // Check if WooCommerce is active
                 
-                $this->init();
+                $this->main();
             } else {
 
                 add_action( 'admin_notices', array( $this, 'missing_notice' ) );
@@ -85,8 +87,20 @@ if ( !class_exists( 'WModes_Init' ) ) {
 
             echo '<div class="error"><p><strong>' . esc_html__( 'WooCommerce Catalog Mode - Product Pricing, Enquiry Forms & Promotions requires WooCommerce be installed and activated.', 'catalog-mode-pricing-enquiry-forms-promotions' ) . '</strong></p></div>';
         }
+        
+        public function get_dependency_slug( $slug ) {
 
-        private function init() {
+            $dep_slug = '{{wmodes}}';
+
+            if ( $dep_slug != $slug ) {
+
+                return $slug;
+            }
+
+          return str_replace( $dep_slug, 'catalog-mode-pricing-enquiry-forms-promotions', $slug );
+        }
+
+        private function main() {
 
             //WModes Main
             if ( !class_exists( 'WModes_Main' ) ) {

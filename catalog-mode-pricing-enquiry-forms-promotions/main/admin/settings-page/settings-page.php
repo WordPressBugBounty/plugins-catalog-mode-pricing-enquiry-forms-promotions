@@ -246,7 +246,7 @@ if ( !class_exists( 'WModes_Admin_Page' ) ) {
 
             return self::process_locale_options( $options );
         }
-        
+
         private static function process_locale_options( $options ) {
 
             if ( is_null( self::$locale ) ) {
@@ -264,35 +264,17 @@ if ( !class_exists( 'WModes_Admin_Page' ) ) {
             return wp_kses( $option, $allow_html );
         }
 
-        public static function get_plugin_links( $links ) {
+        public static function get_plugin_links( $actions ) {
 
-            if ( defined( 'WMODES_PREMIUM_ADDON' ) ) {
-
-                unset( $links[ 'deactivate' ] );
-
-                $add_on_text = esc_html__( 'wModes - Catalog Mode, Product Pricing, Enquiry Forms & Promotions (Premium Add-On) | for WooCommerce', 'catalog-mode-pricing-enquiry-forms-promotions' );
-
-                /* translators: 1:  plugin name */
-                $required_text = sprintf( esc_html__( 'Required by %s', 'catalog-mode-pricing-enquiry-forms-promotions' ), $add_on_text );
-
-                $no_deactivate_tag = '<span style="color: #313639">' . $required_text . '</span>';
-
-                array_unshift( $links, $no_deactivate_tag );
-
-                return $links;
-            }
-
-            $doc_link = '<a href="' . esc_url( 'https://support.zendcrew.cc/portal/en/kb/woocommerce-catalog-mode-enquiry-forms' ) . '" target="_blank">' . esc_html__( 'Documentation', 'catalog-mode-pricing-enquiry-forms-promotions' ) . '</a>';
-
-            array_unshift( $links, $doc_link );
+            $links = array();
 
             $settings_url = admin_url( 'admin.php?page=wmodes-settings' );
 
-            $settings_link = '<a href="' . esc_url( $settings_url ) . '">' . esc_html__( 'Settings', 'catalog-mode-pricing-enquiry-forms-promotions' ) . '</a>';
+            $links[ 'wmodes_settings' ] = '<a href="' . esc_url( $settings_url ) . '">' . esc_html__( 'Settings', 'catalog-mode-pricing-enquiry-forms-promotions' ) . '</a>';
 
-            array_unshift( $links, $settings_link );
-
-            return $links;
+            $links[ 'wmodes_doc' ] = '<a href="' . esc_url( 'https://support.zendcrew.cc/portal/en/kb/woocommerce-catalog-mode-enquiry-forms' ) . '" target="_blank">' . esc_html__( 'Documentation', 'catalog-mode-pricing-enquiry-forms-promotions' ) . '</a>';
+ 
+            return array_merge( $links, $actions );
         }
 
         public static function get_premium_messages( $message_id = '' ) {
@@ -378,7 +360,7 @@ if ( !class_exists( 'WModes_Admin_Page' ) ) {
             /* translators: 1:  plugin version */
             return sprintf( esc_html__( 'Lite v%s', 'catalog-mode-pricing-enquiry-forms-promotions' ), WMODES_VERSION );
         }
-        
+
         private static function get_page_links() {
 
             $page_links = array(

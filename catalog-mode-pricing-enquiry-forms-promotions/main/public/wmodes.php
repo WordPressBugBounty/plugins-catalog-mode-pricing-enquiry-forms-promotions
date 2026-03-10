@@ -71,17 +71,10 @@ if ( !class_exists( 'WModes' ) ) {
 
         public static function get_option( $option_key, $default, $options = false ) {
 
-            if ( false !== $options ) {
-
-                if ( isset( $options[ $option_key ] ) ) {
-
-                    return $options[ $option_key ];
-                }
-
-                return $default;
+            if ( false === $options ) {
+                
+               $options = self::get_all_options( array() ); 
             }
-
-            $options = self::get_all_options( array() );
 
             if ( isset( $options[ $option_key ] ) ) {
 

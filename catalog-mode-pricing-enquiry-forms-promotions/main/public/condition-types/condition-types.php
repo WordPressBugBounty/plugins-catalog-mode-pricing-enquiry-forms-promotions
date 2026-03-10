@@ -7,20 +7,20 @@ if ( !defined( 'ABSPATH' ) ) {
 if ( !class_exists( 'WModes_Condition_Types' ) ) {
 
     require_once (dirname( __FILE__ ) . '/condition-types-customer.php');
-    require_once (dirname( __FILE__ ) . '/condition-types-datetime.php');
+    require_once (dirname( __FILE__ ) . '/condition-types-calendar.php');
     require_once (dirname( __FILE__ ) . '/condition-types-cart.php');
 
     class WModes_Condition_Types {
 
         private static $instance;
         private $condition_type_customer;
-        private $condition_type_datetime;
+        private $condition_type_calendar;
         private $condition_type_cart;
 
         private function __construct() {
 
             $this->condition_type_customer = new WModes_Condition_Type_Customer();
-            $this->condition_type_datetime = new WModes_Condition_Type_DateTime();
+            $this->condition_type_calendar = new WModes_Condition_Type_Calendar();
             $this->condition_type_cart = new WModes_Condition_Type_Cart();
         }
 
@@ -79,9 +79,9 @@ if ( !class_exists( 'WModes_Condition_Types' ) ) {
                 return $this->condition_type_customer->validate( $condition, $data );
             }
             
-            if ( $this->condition_type_datetime->can_validate( $condition[ 'condition_type' ] ) ) {
+            if ( $this->condition_type_calendar->can_validate( $condition[ 'condition_type' ] ) ) {
 
-                return $this->condition_type_datetime->validate( $condition, $data );
+                return $this->condition_type_calendar->validate( $condition, $data );
             }
             
             if ( $this->condition_type_cart->can_validate( $condition[ 'condition_type' ] ) ) {
