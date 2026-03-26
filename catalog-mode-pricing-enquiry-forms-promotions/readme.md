@@ -4,7 +4,7 @@ Donate link:
 Tags: catalog, catalog mode, catalogue mode, enquiry form, remove add to cart
 Requires at least: 5.8
 Tested up to: 6.9
-Stable tag: 1.3.2
+Stable tag: 1.3.3
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -57,6 +57,10 @@ The plugin allows you to easily set up all module functions based on product rul
 6. wModes - Catalog Mode, Product Pricing, Enquiry Forms & Promotions | for WooCommerce - Product Settings 2
 
 == Changelog ==
+
+= 1.3.3 - 26/03/2026 =
+[Update] - Updated Framework (fixed DOMPurify issue)
+[Check] - WooCommerce 10.6 compatibility check
 
 = 1.3.2 - 11/03/2026 =
 [Update] - Updated Framework
